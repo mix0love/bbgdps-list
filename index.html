@@ -695,7 +695,11 @@
         async function init() {
             // TRY API FIRST (Calls /api/db proxy if hosted)
             try {
-                const res = await (await fetch('/api/db', { method: 'POST', body: JSON.stringify(['GET', 'city_v12_pro']) })).json();
+                const res = await (await fetch('/api/db', { 
+    method: 'POST', 
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(['GET', 'city_v12_pro']) 
+})).json();
                 if(res.result) db = JSON.parse(res.result);
                 else throw new Error("No API");
             } catch (e) {
@@ -722,7 +726,11 @@
         async function save() { 
             // TRY API FIRST (Calls /api/db proxy if hosted)
             try {
-                await fetch('/api/db', { method: 'POST', body: JSON.stringify(['SET', 'city_v12_pro', JSON.stringify(db)]) });
+                await fetch('/api/db', { 
+    method: 'POST', 
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(['SET', 'city_v12_pro', JSON.stringify(db)]) 
+});
             } catch (e) {
                 // FALLBACK TO LOCAL STORAGE
                 localStorage.setItem('global_bbgdps_db', JSON.stringify(db));
@@ -1215,4 +1223,5 @@
         init();
     </script>
 </body>
+
 </html>
