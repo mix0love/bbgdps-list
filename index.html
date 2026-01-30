@@ -689,7 +689,7 @@
 
         .p-stats-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 5px;
             margin-top: 30px;
             padding-top: 20px;
@@ -838,12 +838,14 @@
         }
 
         .prog-percent {
-            width: 100px;
-            text-align: center;
+            min-width: 80px;
+            padding: 0 15px;
+            text-align: right;
             font-weight: 900;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             position: relative;
             z-index: 2;
+            white-space: nowrap;
         }
 
         .perc-100 {
@@ -1088,6 +1090,7 @@
                 background: rgba(255, 255, 255, 0.05);
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 margin-right: 5px;
+                display: inline-block;
             }
 
             .nav-item.active {
@@ -1120,7 +1123,8 @@
             }
 
             .p-stats-grid {
-                gap: 5px;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
             }
 
             .p-stat h3 {
@@ -1259,6 +1263,7 @@
             <div class="nav-links">
                 <div class="nav-item active" onclick="navigate('list')" id="nav-list">Demonlist</div>
                 <div class="nav-item" onclick="navigate('challenges')" id="nav-challenges">Challenges</div>
+                <div class="nav-item" onclick="navigate('platformers')" id="nav-platformers">Platformers</div>
                 <div class="nav-item" onclick="navigate('leaderboard')" id="nav-leaderboard">Leaderboard</div>
                 <div class="nav-item" onclick="navigate('staff')" id="nav-staff">Staff</div>
             </div>
@@ -1310,13 +1315,17 @@
                 <div class="adm-nav-btn" onclick="renderAdmDashboard('levels', this)"><i
                         class="fa-solid fa-layer-group"></i> <span>Levels</span></div>
                 <div class="adm-nav-btn" onclick="renderAdmDashboard('queue', this)"><i class="fa-solid fa-inbox"></i>
-                    <span>Queue</span></div>
+                    <span>Queue</span>
+                </div>
                 <div class="adm-nav-btn" onclick="renderAdmDashboard('users', this)"><i class="fa-solid fa-users"></i>
-                    <span>Users</span></div>
+                    <span>Users</span>
+                </div>
                 <div class="adm-nav-btn" onclick="renderAdmDashboard('team', this)"><i class="fa-solid fa-crown"></i>
-                    <span>Team</span></div>
+                    <span>Team</span>
+                </div>
                 <div class="adm-nav-btn" onclick="renderAdmDashboard('settings', this)"><i class="fa-solid fa-gear"></i>
-                    <span>System</span></div>
+                    <span>System</span>
+                </div>
                 <div style="margin-top:auto; width:100%">
                     <button onclick="toggleAdminPanel()" class="btn btn-danger" style="width:100%"><i
                             class="fa-solid fa-power-off"></i> Exit</button>
@@ -1364,16 +1373,20 @@
                             style="border:1px solid var(--accent); margin-bottom:30px">
                             <h4 style="margin-bottom:20px; color:var(--accent)">ADD NEW LEVEL</h4>
                             <p style="font-size:0.8rem; color:#888; margin-bottom:10px">Set Points to <b>0</b> to add to
-                                <b>Legacy List</b>.</p>
+                                <b>Legacy List</b>.
+                            </p>
                             <div class="form-grid">
                                 <input id="n-name" class="input-std" placeholder="Level Name">
                                 <input id="n-auth" class="input-std" placeholder="Creator">
                                 <input id="n-id" class="input-std" placeholder="Level ID (Numbers)">
                                 <input id="n-ver" class="input-std" placeholder="Verifier">
+                                <input id="n-ver-time" class="input-std hidden"
+                                    placeholder="Verifier Time (e.g. 10:23)">
                                 <input id="n-pts" class="input-std" placeholder="Points (0 = Legacy)">
-                                <select id="n-cat" class="input-std">
+                                <select id="n-cat" class="input-std" onchange="toggleLvlFields('n')">
                                     <option value="demonlist">Demonlist</option>
                                     <option value="challenge">Challenge List</option>
+                                    <option value="platformer">Platformer</option>
                                 </select>
                                 <input id="n-min" class="input-std" placeholder="Min %">
                                 <input id="n-runpts" class="input-std" placeholder="Points for Run">
@@ -1519,12 +1532,13 @@
             <select id="sub-cat" class="input-std" onchange="updateSubmitLevels()">
                 <option value="demonlist">Demonlist</option>
                 <option value="challenge">Challenge</option>
+                <option value="platformer">Platformer</option>
             </select>
             <select id="sub-lvl" class="input-std"></select>
             <input id="sub-name" class="input-std" placeholder="Username">
             <div class="input-group">
                 <input id="sub-perc" type="number" class="input-std" placeholder="Percentage (1-100)">
-                <div style="width:50px; display:flex; align-items:center">%</div>
+                <div id="sub-lbl-unit" style="width:50px; display:flex; align-items:center">%</div>
             </div>
             <input id="sub-link" class="input-std" placeholder="Video Link (YouTube)">
             <button onclick="submitRecord()" class="btn btn-primary" style="width:100%; margin-top:10px">Submit for
@@ -1551,14 +1565,18 @@
         <div class="modal-box">
             <h3>Edit Level Data</h3>
             <input id="e-name" class="input-std" placeholder="Name">
-            <div class="form-grid">
-                <input id="e-auth" class="input-std" placeholder="Creator">
-                <input id="e-id" class="input-std" placeholder="GD ID">
-                <input id="e-pts" class="input-std" placeholder="Points (0 = Legacy)">
-                <input id="e-ver" class="input-std" placeholder="Verifier">
-                <input id="e-min" class="input-std" placeholder="Min %">
-                <input id="e-runpts" class="input-std" placeholder="Run Pts">
-            </div>
+            <input id="e-auth" class="input-std" placeholder="Creator">
+            <input id="e-id" class="input-std" placeholder="GD ID">
+            <select id="e-cat" class="input-std" onchange="toggleLvlFields('e')">
+                <option value="demonlist">Demonlist</option>
+                <option value="challenge">Challenge</option>
+                <option value="platformer">Platformer</option>
+            </select>
+            <input id="e-pts" class="input-std" placeholder="Points (0 = Legacy)">
+            <input id="e-ver" class="input-std" placeholder="Verifier">
+            <input id="e-ver-time" class="input-std hidden" placeholder="Verifier Time">
+            <input id="e-min" class="input-std" placeholder="Min %">
+            <input id="e-runpts" class="input-std" placeholder="Run Pts">
             <input id="e-vid" class="input-std" placeholder="Preview URL">
             <hr style="border:0; border-top:1px solid #333; margin:20px 0">
             <h4>Manual Victor Add</h4>
@@ -1693,6 +1711,7 @@
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             if (hash === 'list') { document.getElementById('nav-list').classList.add('active'); renderList('demonlist'); }
             else if (hash === 'challenges') { document.getElementById('nav-challenges').classList.add('active'); renderList('challenge'); }
+            else if (hash === 'platformers') { document.getElementById('nav-platformers').classList.add('active'); renderList('platformer'); }
             else if (hash === 'leaderboard') { document.getElementById('nav-leaderboard').classList.add('active'); renderLeaderboard(); }
             else if (hash === 'staff') { document.getElementById('nav-staff').classList.add('active'); renderStaff(); }
             else if (hash.startsWith('profile=')) { renderProfile(decodeURIComponent(hash.split('=')[1])); }
@@ -1760,6 +1779,7 @@
                 <div class="lb-switch">
                     <div class="lb-btn ${lbMode === 'demonlist' ? 'active' : ''}" onclick="lbMode='demonlist'; renderLeaderboard()">DEMONLIST</div>
                     <div class="lb-btn ${lbMode === 'challenge' ? 'active' : ''}" onclick="lbMode='challenge'; renderLeaderboard()">CHALLENGE</div>
+                    <div class="lb-btn ${lbMode === 'platformer' ? 'active' : ''}" onclick="lbMode='platformer'; renderLeaderboard()">PLATFORMER</div>
                 </div>
             </div>
             <div class="lb-grid">
@@ -1827,6 +1847,7 @@
 
             let totalPts = 0;
             let demonCount = 0;
+            let platformerCount = 0;
             let challengeCount = 0;
 
             const records = [];
@@ -1841,7 +1862,9 @@
                     if (!records.find(r => r.l.id === l.id)) {
                         pts = l.pts;
                         records.push({ type: verified ? 'ver' : 'win', l: l });
-                        if (l.cat === 'demonlist') demonCount++; else challengeCount++;
+                        if (l.cat === 'demonlist') demonCount++;
+                        else if (l.cat === 'platformer') platformerCount++;
+                        else challengeCount++;
                     }
                 } else if (run) {
                     pts = (l.prg_pts || 0);
@@ -1863,6 +1886,7 @@
                         <div class="p-stats-grid">
                             <div class="p-stat"><h3>${totalPts.toFixed(0)}</h3><span>POINTS</span></div>
                             <div class="p-stat"><h3>${demonCount}</h3><span>DEMONS</span></div>
+                            <div class="p-stat"><h3>${platformerCount}</h3><span>PLATFORMERS</span></div>
                             <div class="p-stat"><h3>${challengeCount}</h3><span>CHALLENGES</span></div>
                         </div>
                         ${isMe ? `<button onclick="openEditProfile()" class="btn btn-sec" style="width:100%; margin-top:20px">Edit Profile</button><button onclick="logout()" class="btn btn-danger" style="width:100%; margin-top:5px">Logout</button>` : ''}
@@ -1871,6 +1895,7 @@
                 <main>
                     <div class="p-tabs">
                         <div class="p-tab active" onclick="switchProfileTab(this, 'demonlist')">Demons</div>
+                        <div class="p-tab" onclick="switchProfileTab(this, 'platformer')">Platformers</div>
                         <div class="p-tab" onclick="switchProfileTab(this, 'challenge')">Challenges</div>
                     </div>
                     <div id="p-records-feed">
@@ -1880,6 +1905,10 @@
                 const isWin = rec.type === 'win';
                 const isLegacy = l.pts === 0;
                 let perc = isVer ? 'VERIFIER' : (isWin ? '100%' : rec.percent + '%');
+                if (l.cat === 'platformer' && isWin && !isVer) {
+                    perc = (l.platformer_times && l.platformer_times[username]) ? l.platformer_times[username] : 'Completed';
+                }
+                if (isVer && l.ver_time) perc += `<div style="font-size:0.6rem; margin-top:3px; opacity:0.8">${l.ver_time}</div>`;
                 let pointsDisplay = isLegacy ? "LEGACY" : `+${isWin || isVer ? l.pts : l.prg_pts} pts`;
                 return `<div class="prog-banner rec-item rec-${l.cat} ${isLegacy ? 'is-legacy' : ''}" onclick="openLevel(${l.id})">
                                 <div class="prog-bg" style="background-image: url('${getImg(l.img)}')"></div>
@@ -1933,13 +1962,14 @@
                         <div>${isLegacy ? '' : 'POINTS'}</div>
                     </div>
                 </div>
-                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:30px 0; text-align:center">
+                <div style="display:grid; grid-template-columns:${l.cat === 'platformer' ? '1fr' : '1fr 1fr 1fr'}; gap:10px; margin:30px 0; text-align:center">
                      <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px"><div style="font-size:0.7rem;">ID</div><b>${l.gd_id}</b></div>
-                     <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px"><div style="font-size:0.7rem;">MIN %</div><b>${l.min_prg || 0}%</b></div>
-                     <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px"><div style="font-size:0.7rem;">RUN PTS</div><b>${l.prg_pts || 0}</b></div>
+                     ${l.cat === 'platformer' ? '' : `<div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px"><div style="font-size:0.7rem;">MIN %</div><b>${l.min_prg || 0}%</b></div>
+                     <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px"><div style="font-size:0.7rem;">RUN PTS</div><b>${l.prg_pts || 0}</b></div>`}
                 </div>
                 <div style="background:rgba(251,191,36,0.1); border-left:4px solid var(--verifier); padding:15px; margin-bottom:20px;">
                     <span style="color:var(--verifier); font-weight:800;">VERIFIER:</span> ${l.ver}
+                    ${l.ver_time ? `<div style="font-size:0.8rem; opacity:0.6; margin-top:5px">TIME: ${l.ver_time}</div>` : ''}
                 </div>
                 <h3 style="border-bottom:1px solid rgba(255,255,255,0.1);">Victors (${l.victors.length})</h3>
                 <div style="max-height:200px; overflow-y:auto;">
@@ -1947,7 +1977,10 @@
                 const u = db.users.find(x => x.username === v) || {};
                 return `<div style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; gap:10px; cursor:pointer" onclick="navigate('profile=${v}'); closeModals()">
                             <span style="font-size:1.2em">${getFlagHtml(u.country)}</span>
-                            <b>${v}</b>
+                            <div>
+                                <div style="font-weight:700">${v}</div>
+                                ${l.cat === 'platformer' && l.platformer_times && l.platformer_times[v] ? `<div style="font-size:0.75rem; opacity:0.6">${l.platformer_times[v]}</div>` : ''}
+                            </div>
                         </div>`;
             }).join('')}
                 </div>
@@ -2046,13 +2079,33 @@
                 if (td) trs[i].style.display = td.textContent.toUpperCase().indexOf(input) > -1 ? "" : "none";
             }
         }
+        function toggleLvlFields(p) {
+            const cat = document.getElementById(p + '-cat').value;
+            const isPlat = cat === 'platformer';
+            const els = [document.getElementById(p + '-min'), document.getElementById(p + '-runpts')];
+            const verTime = document.getElementById(p + '-ver-time');
+
+            els.forEach(e => {
+                e.disabled = isPlat;
+                e.style.opacity = isPlat ? '0.3' : '1';
+                if (isPlat) e.value = '';
+            });
+
+            if (isPlat) {
+                verTime.classList.remove('hidden');
+            } else {
+                verTime.classList.add('hidden');
+                verTime.value = '';
+            }
+        }
         async function fullAddLevel() {
             db.levels.push({
                 id: Date.now(), name: document.getElementById('n-name').value, creator: document.getElementById('n-auth').value,
                 gd_id: document.getElementById('n-id').value, pts: parseFloat(document.getElementById('n-pts').value) || 0,
                 ver: document.getElementById('n-ver').value, cat: document.getElementById('n-cat').value,
                 min_prg: parseInt(document.getElementById('n-min').value) || 0, prg_pts: parseFloat(document.getElementById('n-runpts').value) || 0,
-                img: document.getElementById('n-vid').value, victors: [], runs: []
+                img: document.getElementById('n-vid').value, victors: [], runs: [], platformer_times: {},
+                ver_time: document.getElementById('n-ver-time').value
             });
             await save(); alert("Level Added"); renderAdmLevels(); document.getElementById('adm-add-lvl-form').classList.add('hidden');
         }
@@ -2067,9 +2120,12 @@
                 document.getElementById('e-id').value = l.gd_id;
                 document.getElementById('e-pts').value = l.pts;
                 document.getElementById('e-ver').value = l.ver;
+                document.getElementById('e-cat').value = l.cat || 'demonlist'; // Set Category
                 document.getElementById('e-min').value = l.min_prg || 0;
                 document.getElementById('e-runpts').value = l.prg_pts || 0;
                 document.getElementById('e-vid').value = l.img || '';
+                document.getElementById('e-ver-time').value = l.ver_time || '';
+                toggleLvlFields('e'); // Trigger disable logic
                 document.getElementById('modal-adm-edit-lvl').style.display = 'flex';
             }
         }
@@ -2081,9 +2137,19 @@
                 l.gd_id = document.getElementById('e-id').value;
                 l.pts = parseFloat(document.getElementById('e-pts').value);
                 l.ver = document.getElementById('e-ver').value;
+                l.ver_time = document.getElementById('e-ver-time').value; // Save Ver Time
+                l.cat = document.getElementById('e-cat').value;
                 l.min_prg = parseInt(document.getElementById('e-min').value);
                 l.prg_pts = parseFloat(document.getElementById('e-runpts').value);
                 l.img = document.getElementById('e-vid').value;
+
+                if (l.cat !== 'platformer') {
+                    delete l.ver_time;
+                    delete l.platformer_times;
+                } else {
+                    if (!l.platformer_times) l.platformer_times = {};
+                }
+
                 await save(); closeModals(); renderAdmLevels();
             }
         }
@@ -2110,7 +2176,14 @@
             const p = db.pending.find(x => x.id === id);
             if (accept) {
                 const l = db.levels.find(x => x.id == p.lvlId);
-                if (p.perc >= 100) { if (!l.victors.includes(p.player)) l.victors.push(p.player); } else l.runs.push({ name: p.player, percent: p.perc });
+                if (l.cat === 'platformer') {
+                    if (!l.victors.includes(p.player)) l.victors.push(p.player);
+                    if (!l.platformer_times) l.platformer_times = {};
+                    l.platformer_times[p.player] = p.perc;
+                } else {
+                    if (p.perc >= 100) { if (!l.victors.includes(p.player)) l.victors.push(p.player); }
+                    else l.runs.push({ name: p.player, percent: p.perc });
+                }
             }
             db.pending = db.pending.filter(x => x.id !== id); await save(); renderAdmQueue();
         }
@@ -2152,6 +2225,20 @@
             const sel = document.getElementById('sub-lvl');
             const list = db.levels.filter(l => l.cat === cat).sort((a, b) => b.pts - a.pts);
             sel.innerHTML = list.map(l => `<option value="${l.id}">${l.name}</option>`).join('');
+
+            const percInput = document.getElementById('sub-perc');
+            const percLabel = document.getElementById('sub-lbl-unit');
+            if (cat === 'platformer') {
+                percInput.type = 'text';
+                percInput.placeholder = 'Time (e.g. 10:23.456)';
+                percLabel.innerText = 'Time';
+                percLabel.style.width = 'auto';
+                percLabel.style.paddingLeft = '10px';
+            } else {
+                percInput.type = 'number';
+                percInput.placeholder = 'Percentage (1-100)';
+                percLabel.innerText = '%';
+            }
         }
         async function submitRecord() {
             db.pending.push({ id: Date.now(), lvlId: document.getElementById('sub-lvl').value, player: document.getElementById('sub-name').value, perc: document.getElementById('sub-perc').value, link: document.getElementById('sub-link').value });
