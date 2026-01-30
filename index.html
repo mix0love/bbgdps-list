@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Global BBGDPS | Ultimate List</title>
-    
+
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- ICONS & FLAGS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
 
     <style>
         :root {
@@ -21,47 +24,77 @@
             --bg-panel: #0f1214;
             --bg-card: #15181a;
             --bg-hover: #1e2224;
-            
-            --accent: #00e0ff;        
+
+            --accent: #00e0ff;
             --accent-dim: rgba(0, 224, 255, 0.1);
             --accent-glow: rgba(0, 224, 255, 0.6);
-            
+
             --text-main: #ffffff;
             --text-sec: #9ca3af;
-            
-            --demon: #ef4444;         
-            --challenge: #d946ef;     
-            --verifier: #fbbf24;      
-            
-            --border: 1px solid rgba(255,255,255,0.08);
+
+            --demon: #ef4444;
+            --challenge: #d946ef;
+            --verifier: #fbbf24;
+
+            --border: 1px solid rgba(255, 255, 255, 0.08);
             --radius: 16px;
-            --shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
-            
+            --shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+
             --tg-color: #229ED9;
         }
 
         /* --- BASE RESET --- */
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
-        body { 
-            background-color: var(--bg-body); 
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-body);
             background-image: radial-gradient(circle at 50% 0%, #083344 0%, #050505 60%);
             background-attachment: fixed;
-            color: var(--text-main); 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
             min-height: 100vh;
             overflow-x: hidden;
         }
-        
-        h1, h2, h3, h4, h5, .brand, .stat-val, .rank-num { font-family: 'Outfit', sans-serif; }
-        a { text-decoration: none; color: inherit; transition: 0.2s; }
-        
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .brand,
+        .stat-val,
+        .rank-num {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
         /* SCROLLBAR */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-body); }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-body);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
 
         /* FLAG FIXES */
         .fi {
@@ -71,333 +104,1158 @@
             background-size: cover;
             display: inline-block;
             vertical-align: middle;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         /* --- UI COMPONENTS --- */
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px 80px; }
-        
-        .btn { 
-            padding: 12px 24px; 
-            border-radius: 50px; 
-            font-weight: 700; 
-            cursor: pointer; 
-            border: none; 
-            display: inline-flex; 
-            align-items: center; 
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            gap: 8px; 
-            transition: all 0.2s ease; 
+            gap: 8px;
+            transition: all 0.2s ease;
             font-size: 0.9rem;
         }
-        
-        .btn-primary { 
-            background: linear-gradient(135deg, var(--accent), #0099cc); 
-            color: #000; 
-            box-shadow: 0 4px 20px var(--accent-glow); 
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #0099cc);
+            color: #000;
+            box-shadow: 0 4px 20px var(--accent-glow);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px var(--accent-glow); color: #000; }
-        
-        .btn-sec { 
-            background: rgba(255,255,255,0.05); 
-            color: var(--text-sec); 
-            border: 1px solid rgba(255,255,255,0.1); 
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px var(--accent-glow);
+            color: #000;
         }
-        .btn-sec:hover { background: rgba(255,255,255,0.1); color: white; border-color: white; }
-        
-        .btn-danger { 
-            background: rgba(239, 68, 68, 0.1); 
-            color: #fca5a5; 
-            border: 1px solid rgba(239, 68, 68, 0.3); 
+
+        .btn-sec {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-sec);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .btn-danger:hover { background: var(--demon); color: white; border-color: var(--demon); }
+
+        .btn-sec:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: white;
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: var(--demon);
+            color: white;
+            border-color: var(--demon);
+        }
 
         .btn-tg {
             background: rgba(34, 158, 217, 0.15);
             color: #5bbcec;
             border: 1px solid rgba(34, 158, 217, 0.3);
         }
-        .btn-tg:hover { background: var(--tg-color); color: white; box-shadow: 0 0 20px rgba(34, 158, 217, 0.4); border-color: var(--tg-color); }
 
-        .btn-icon { padding: 8px; width: 35px; height: 35px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.2s; }
-        .btn-icon:hover { background: rgba(255,255,255,0.1); color: var(--accent); }
+        .btn-tg:hover {
+            background: var(--tg-color);
+            color: white;
+            box-shadow: 0 0 20px rgba(34, 158, 217, 0.4);
+            border-color: var(--tg-color);
+        }
+
+        .btn-icon {
+            padding: 8px;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.2s;
+        }
+
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+        }
 
         .input-std {
-            background: rgba(0,0,0,0.4); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            padding: 14px; 
-            border-radius: 10px; 
-            color: white; 
-            width: 100%; 
-            margin-bottom: 12px; 
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 14px;
+            border-radius: 10px;
+            color: white;
+            width: 100%;
+            margin-bottom: 12px;
             font-family: inherit;
             transition: 0.2s;
         }
-        .input-std:focus { border-color: var(--accent); outline: none; background: rgba(0,0,0,0.6); }
-        select.input-std { appearance: none; cursor: pointer; }
-        .input-group { display: flex; gap: 10px; }
+
+        .input-std:focus {
+            border-color: var(--accent);
+            outline: none;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        select.input-std {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
 
         /* --- HEADER --- */
-        header { 
-            position: sticky; top: 0; z-index: 1000; 
-            background: rgba(5, 5, 5, 0.85); 
-            backdrop-filter: blur(20px); 
-            border-bottom: var(--border); 
-            padding: 15px 0; 
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: var(--border);
+            padding: 15px 0;
             margin-bottom: 40px;
         }
-        .head-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-        
-        .brand { 
-            font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; 
-            display: flex; align-items: center; gap: 12px; cursor: pointer; white-space: nowrap;
-        }
-        .brand i { color: #fff; filter: drop-shadow(0 0 8px rgba(255,255,255,0.5)); }
-        .brand span { color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
-        
-        .nav-links { display: flex; gap: 5px; background: rgba(255,255,255,0.03); padding: 5px; border-radius: 50px; border: var(--border); }
-        .nav-item { 
-            padding: 10px 24px; border-radius: 50px; 
-            color: var(--text-sec); font-weight: 700; cursor: pointer; transition: 0.3s; white-space: nowrap;
-        }
-        .nav-item:hover { color: white; }
-        .nav-item.active { background: var(--accent); color: #000; box-shadow: 0 2px 15px var(--accent-glow); }
 
-        .auth-widget { display: flex; align-items: center; gap: 10px; }
-        .user-chip { 
-            display: flex; align-items: center; gap: 10px; padding: 6px 16px; 
-            background: rgba(255,255,255,0.05); border-radius: 50px; cursor: pointer; 
-            border: 1px solid rgba(255,255,255,0.1); transition: 0.2s;
+        .head-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
-        .user-chip:hover { border-color: var(--accent); background: rgba(255,255,255,0.1); }
-        .avatar-xxs { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .brand i {
+            color: #fff;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+        }
+
+        .brand span {
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 5px;
+            border-radius: 50px;
+            border: var(--border);
+        }
+
+        .nav-item {
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: var(--text-sec);
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item.active {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 2px 15px var(--accent-glow);
+        }
+
+        .auth-widget {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.2s;
+        }
+
+        .user-chip:hover {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .avatar-xxs {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
 
         /* --- ADMIN DASHBOARD --- */
         #admin-overlay {
-            position: fixed; inset: 0; background: #050505; z-index: 5000; 
-            display: flex; flex-direction: column; animation: fadeIn 0.3s;
+            position: fixed;
+            inset: 0;
+            background: #050505;
+            z-index: 5000;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.3s;
         }
-        .adm-layout { display: flex; flex-grow: 1; overflow: hidden; }
+
+        .adm-layout {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
         .adm-sidebar {
-            width: 260px; background: #0b0c10; border-right: var(--border);
-            display: flex; flex-direction: column; padding: 20px;
+            width: 260px;
+            background: #0b0c10;
+            border-right: var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
         }
+
         .adm-nav-btn {
-            padding: 12px 15px; border-radius: 12px; cursor: pointer;
-            color: var(--text-sec); font-weight: 600; margin-bottom: 5px;
-            display: flex; align-items: center; gap: 12px; transition: 0.2s;
+            padding: 12px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            color: var(--text-sec);
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
         }
-        .adm-nav-btn:hover { background: rgba(255,255,255,0.03); color: white; }
-        .adm-nav-btn.active { background: var(--accent-dim); color: var(--accent); }
-        .adm-main { flex-grow: 1; padding: 30px; overflow-y: auto; position: relative; }
-        .adm-container { max-width: 1200px; margin: 0 auto; }
-        .adm-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: var(--border); }
-        .adm-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
-        .adm-stat-card { background: var(--bg-card); padding: 20px; border-radius: 12px; border: var(--border); display: flex; align-items: center; gap: 20px; }
-        .asc-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--accent); }
-        .adm-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-        .adm-table th { text-align: left; padding: 15px; color: var(--text-sec); border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; text-transform: uppercase; }
-        .adm-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .adm-table tr:hover { background: rgba(255,255,255,0.02); }
-        .status-badge { padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
-        .sb-green { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
-        .sb-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .form-full { grid-column: span 2; }
+
+        .adm-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.03);
+            color: white;
+        }
+
+        .adm-nav-btn.active {
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .adm-main {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .adm-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .adm-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: var(--border);
+        }
+
+        .adm-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .adm-stat-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            border: var(--border);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .asc-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .adm-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .adm-table th {
+            text-align: left;
+            padding: 15px;
+            color: var(--text-sec);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .adm-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .adm-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .sb-green {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        .sb-blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-full {
+            grid-column: span 2;
+        }
 
         /* --- LIST VIEW --- */
-        .list-grid { display: flex; flex-direction: column; gap: 20px; max-width: 950px; margin: 0 auto; }
-        
+        .list-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
         .lvl-card {
-            position: relative; height: 180px; background: var(--bg-card); border-radius: var(--radius);
-            overflow: hidden; border: var(--border); cursor: pointer; transition: 0.3s;
-            display: flex; box-shadow: var(--shadow);
+            position: relative;
+            height: 180px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: var(--border);
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            box-shadow: var(--shadow);
         }
-        .lvl-card:hover { transform: scale(1.02); border-color: var(--accent); box-shadow: 0 15px 50px var(--accent-dim); }
-        .lvl-bg { 
-            position: absolute; inset: 0; background-size: cover; background-position: center; 
-            opacity: 0.6; transition: 0.5s; mask-image: linear-gradient(to right, black 30%, transparent 100%);
+
+        .lvl-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 15px 50px var(--accent-dim);
         }
-        .lvl-card:hover .lvl-bg { opacity: 0.8; transform: scale(1.05); }
-        .lvl-info { 
-            position: relative; z-index: 2; padding: 30px; flex-grow: 1; 
-            display: flex; flex-direction: column; justify-content: center;
-            background: linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.5) 100%);
+
+        .lvl-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            transition: 0.5s;
+            mask-image: linear-gradient(to right, black 30%, transparent 100%);
         }
-        .lvl-rank { 
-            position: absolute; left: 0; top: 0; bottom: 0; width: 70px; 
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; font-weight: 900; background: rgba(255,255,255,0.02); 
-            border-right: var(--border); color: var(--text-sec);
+
+        .lvl-card:hover .lvl-bg {
+            opacity: 0.8;
+            transform: scale(1.05);
         }
-        .lvl-title { font-size: 2rem; margin: 0; line-height: 1; text-transform: uppercase; letter-spacing: -1px; }
-        .lvl-meta { display: flex; gap: 15px; font-size: 0.85rem; color: var(--text-sec); margin-top: 10px; text-transform: uppercase; font-weight: 700; }
-        .meta-tag { background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 6px; display: flex; align-items: center; gap: 6px; }
-        .lvl-pts { position: absolute; right: 30px; top: 50%; transform: translateY(-50%); text-align: right; }
-        .pts-val { font-size: 2.5rem; font-weight: 900; color: var(--accent); line-height: 1; text-shadow: 0 0 20px var(--accent-glow); }
-        .pts-lbl { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
-        .divider { 
-            text-align: center; margin: 60px 0 30px; 
-            font-size: 1.2rem; font-weight: 800; color: var(--text-sec); 
-            text-transform: uppercase; letter-spacing: 3px;
-            display: flex; align-items: center; gap: 20px;
+
+        .lvl-info {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.5) 100%);
         }
-        .divider::before, .divider::after { content: ''; height: 1px; background: #333; flex-grow: 1; }
+
+        .lvl-rank {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: rgba(255, 255, 255, 0.02);
+            border-right: var(--border);
+            color: var(--text-sec);
+        }
+
+        .lvl-title {
+            font-size: 2rem;
+            margin: 0;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .lvl-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .meta-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lvl-pts {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: right;
+        }
+
+        .pts-val {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .pts-lbl {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 60px 0 30px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-sec);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            height: 1px;
+            background: #333;
+            flex-grow: 1;
+        }
 
         /* --- PROFILE --- */
-        .profile-layout { display: grid; grid-template-columns: 380px 1fr; gap: 40px; animation: fadeIn 0.5s; }
-        .profile-sidebar { position: sticky; top: 120px; height: fit-content; }
-        .p-card { background: var(--bg-card); border: var(--border); border-radius: var(--radius); padding: 40px; text-align: center; position: relative; overflow: hidden; }
-        .p-bg { position: absolute; top: 0; left: 0; width: 100%; height: 120px; background-size: cover; background-position: center; opacity: 0.3; }
-        .p-avatar { 
-            width: 150px; height: 150px; border-radius: 50%; object-fit: cover; 
-            border: 5px solid var(--bg-card); box-shadow: 0 0 0 2px var(--accent); 
-            position: relative; z-index: 2; margin-top: 40px; margin-bottom: 20px; 
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 40px;
+            animation: fadeIn 0.5s;
         }
-        .p-name-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
-        .p-name { font-size: 2.2rem; margin: 0; line-height: 1; font-weight: 800; word-break: break-word; }
-        .p-bio { color: var(--text-sec); margin-bottom: 25px; font-size: 0.95rem; line-height: 1.6; }
-        .p-stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .p-stat h3 { margin: 0; font-size: 1.4rem; color: var(--accent); }
-        .p-stat span { font-size: 0.6rem; text-transform: uppercase; color: var(--text-sec); font-weight: 700; letter-spacing: 1px; }
-        .p-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; overflow-x: auto; }
-        .p-tab { flex: 1; padding: 15px; text-align: center; cursor: pointer; font-weight: 700; color: var(--text-sec); transition: 0.3s; border-bottom: 2px solid transparent; min-width: 100px; white-space: nowrap; }
-        .p-tab:hover { color: white; background: rgba(255,255,255,0.02); }
-        .p-tab.active { color: var(--accent); border-color: var(--accent); background: linear-gradient(to top, var(--accent-dim), transparent); }
 
-        .rankings-box { margin-top: 20px; text-align: left; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
-        .rank-line { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
-        .rank-line:last-child { border-bottom: none; }
-        .rank-line b { color: var(--accent); }
-        
-        /* WIDE BANNERS */
-        .prog-banner { 
-            position: relative; height: 110px; background: var(--bg-card); 
-            border: var(--border); border-radius: var(--radius); margin-bottom: 15px;
-            overflow: hidden; display: flex; align-items: center; cursor: pointer; transition: 0.2s;
+        .profile-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
         }
-        .prog-banner:hover { transform: scale(1.02); border-color: var(--accent); box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
-        .prog-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.3; transition: 0.4s; }
-        .prog-banner:hover .prog-bg { opacity: 0.5; }
-        .prog-rank { width: 70px; text-align: center; font-size: 1.4rem; font-weight: 900; position: relative; z-index: 2; color: white; text-shadow: 0 2px 4px black; opacity: 0.5; }
-        
-        .prog-info { flex-grow: 1; position: relative; z-index: 2; padding: 0 25px; border-left: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
-        .prog-title { font-size: 1.4rem; font-weight: 800; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .prog-pts { font-size: 0.9rem; color: var(--accent); font-weight: 700; margin-top: 5px; }
-        
-        .prog-percent { width: 100px; text-align: center; font-weight: 900; font-size: 1.4rem; position: relative; z-index: 2; }
-        .perc-100 { color: #fbbf24; text-shadow: 0 0 15px rgba(251, 191, 36, 0.4); }
-        
-        .is-legacy { filter: grayscale(100%) opacity(0.7); }
-        .is-legacy .prog-pts { color: #999 !important; }
-        .is-legacy .prog-percent { font-size: 0.9rem; letter-spacing: 1px; }
+
+        .p-card {
+            background: var(--bg-card);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .p-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .p-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--bg-card);
+            box-shadow: 0 0 0 2px var(--accent);
+            position: relative;
+            z-index: 2;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .p-name-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .p-name {
+            font-size: 2.2rem;
+            margin: 0;
+            line-height: 1;
+            font-weight: 800;
+            word-break: break-word;
+        }
+
+        .p-bio {
+            color: var(--text-sec);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .p-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .p-stat h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        .p-stat span {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .p-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .p-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text-sec);
+            transition: 0.3s;
+            border-bottom: 2px solid transparent;
+            min-width: 100px;
+            white-space: nowrap;
+        }
+
+        .p-tab:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .p-tab.active {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: linear-gradient(to top, var(--accent-dim), transparent);
+        }
+
+        .rankings-box {
+            margin-top: 20px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .rank-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .rank-line:last-child {
+            border-bottom: none;
+        }
+
+        .rank-line b {
+            color: var(--accent);
+        }
+
+        /* WIDE BANNERS */
+        .prog-banner {
+            position: relative;
+            height: 110px;
+            background: var(--bg-card);
+            border: var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .prog-banner:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .prog-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            transition: 0.4s;
+        }
+
+        .prog-banner:hover .prog-bg {
+            opacity: 0.5;
+        }
+
+        .prog-rank {
+            width: 70px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 900;
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-shadow: 0 2px 4px black;
+            opacity: 0.5;
+        }
+
+        .prog-info {
+            flex-grow: 1;
+            position: relative;
+            z-index: 2;
+            padding: 0 25px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .prog-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .prog-pts {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .prog-percent {
+            width: 100px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .perc-100 {
+            color: #fbbf24;
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+        }
+
+        .is-legacy {
+            filter: grayscale(100%) opacity(0.7);
+        }
+
+        .is-legacy .prog-pts {
+            color: #999 !important;
+        }
+
+        .is-legacy .prog-percent {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
 
         /* --- LEADERBOARD --- */
-        .lb-header { text-align: center; margin-bottom: 40px; }
-        .lb-switch { display: inline-flex; background: var(--bg-card); padding: 5px; border-radius: 50px; border: var(--border); margin-bottom: 15px; }
-        .lb-btn { padding: 10px 30px; border-radius: 50px; cursor: pointer; font-weight: 700; transition: 0.2s; color: var(--text-sec); }
-        .lb-btn:hover { color: white; }
-        .lb-btn.active { background: var(--accent); color: #000; box-shadow: 0 4px 15px var(--accent-glow); }
-
-        .lb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .lb-row { 
-            display: grid; grid-template-columns: 60px 60px 1fr 120px; align-items: center; 
-            padding: 18px 25px; background: var(--bg-card); border-bottom: 1px solid rgba(255,255,255,0.05);
-            cursor: pointer; transition: 0.2s; border-radius: 8px; margin-bottom: 5px;
+        .lb-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
-        .lb-row:hover { background: var(--bg-hover); transform: translateX(5px); border-left: 3px solid var(--accent); }
-        .lb-rank { font-size: 1.2rem; font-weight: 900; color: var(--text-sec); }
-        .lb-name { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; }
-        .lb-pts { font-weight: 900; color: var(--accent); text-align: right; font-size: 1.2rem; }
+
+        .lb-switch {
+            display: inline-flex;
+            background: var(--bg-card);
+            padding: 5px;
+            border-radius: 50px;
+            border: var(--border);
+            margin-bottom: 15px;
+        }
+
+        .lb-btn {
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.2s;
+            color: var(--text-sec);
+        }
+
+        .lb-btn:hover {
+            color: white;
+        }
+
+        .lb-btn.active {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .lb-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .lb-row {
+            display: grid;
+            grid-template-columns: 60px 60px 1fr 120px;
+            align-items: center;
+            padding: 18px 25px;
+            background: var(--bg-card);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .lb-row:hover {
+            background: var(--bg-hover);
+            transform: translateX(5px);
+            border-left: 3px solid var(--accent);
+        }
+
+        .lb-rank {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--text-sec);
+        }
+
+        .lb-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lb-pts {
+            font-weight: 900;
+            color: var(--accent);
+            text-align: right;
+            font-size: 1.2rem;
+        }
 
         /* --- STAFF --- */
-        .staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .staff-card { 
-            background: var(--bg-card); border: var(--border); border-radius: var(--radius); 
-            padding: 40px 20px; text-align: center; transition: 0.3s; position: relative; overflow: hidden; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
-        .staff-card::before { content: ''; position: absolute; top:0; left:0; width:100%; height:4px; background: var(--staff-color, var(--accent)); }
-        .staff-card:hover { transform: translateY(-5px); border-color: var(--staff-color, var(--accent)); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .staff-icon { 
-            font-size: 3rem; margin-bottom: 20px; color: var(--staff-color, white);
-            filter: drop-shadow(0 0 15px var(--staff-color)); 
+
+        .staff-card {
+            background: var(--bg-card);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 40px 20px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
+
+        .staff-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--staff-color, var(--accent));
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--staff-color, var(--accent));
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .staff-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--staff-color, white);
+            filter: drop-shadow(0 0 15px var(--staff-color));
+        }
+
         .staff-role-badge {
-            background: rgba(255,255,255,0.05); padding: 5px 15px; border-radius: 50px;
-            color: var(--staff-color); font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.1); margin-top: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 15px;
+            border-radius: 50px;
+            color: var(--staff-color);
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 10px;
         }
 
         /* --- MODALS --- */
         /* Z-INDEX FIX: Modals (6000) > Admin (5000) */
-        .modal { 
-            position: fixed; inset: 0; background: rgba(0,0,0,0.9); 
-            z-index: 6000; 
-            display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); 
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 6000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
         }
-        .modal-box { background: #0f1014; width: 100%; max-width: 600px; border-radius: 24px; border: 1px solid var(--accent); padding: 40px; animation: slideUp 0.3s; max-height: 90vh; overflow-y: auto; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
-        
-        .hidden { display: none !important; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
+
+        .modal-box {
+            background: #0f1014;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 24px;
+            border: 1px solid var(--accent);
+            padding: 40px;
+            animation: slideUp 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 950px) {
-            .container { padding: 0 15px 80px; }
-            .head-inner { flex-direction: column; gap: 15px; align-items: flex-start; }
-            .brand { width: 100%; justify-content: space-between; font-size: 1.5rem; }
-            .nav-links { 
-                width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 5px; 
-                -webkit-overflow-scrolling: touch; background: transparent; border: none;
+            .container {
+                padding: 0 15px 80px;
             }
-            .nav-item { font-size: 0.85rem; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); margin-right: 5px; }
-            .nav-item.active { background: var(--accent); color: black; }
-            
-            .auth-widget { width: 100%; justify-content: space-between; margin-top: 5px; }
-            .btn-tg { padding: 8px 16px; font-size: 0.8rem; }
-            
-            .profile-layout { grid-template-columns: 1fr; gap: 20px; }
-            .profile-sidebar { position: static; }
-            .p-card { padding: 25px 15px; }
-            .p-stats-grid { gap: 5px; }
-            .p-stat h3 { font-size: 1.3rem; }
-            .p-stat span { font-size: 0.6rem; }
-            
-            .lb-grid { grid-template-columns: 1fr; gap: 30px; }
-            .lb-row { padding: 15px; grid-template-columns: 40px 40px 1fr 70px; gap: 10px; }
-            .lb-name { font-size: 0.95rem; }
-            .lb-pts { font-size: 1rem; }
-            
-            .lvl-card { height: auto; flex-direction: column; }
-            .lvl-bg { height: 120px; position: relative; }
-            .lvl-rank { position: absolute; top: 10px; left: 10px; width: 40px; height: 40px; background: rgba(0,0,0,0.8); border-radius: 8px; font-size: 1.2rem; border: 1px solid rgba(255,255,255,0.2); }
-            .lvl-pts { position: static; transform: none; text-align: left; margin-top: 15px; }
-            .pts-val { font-size: 2rem; }
-            
-            #admin-overlay { z-index: 9999; }
-            .adm-layout { flex-direction: column; overflow-y: auto; }
-            .adm-sidebar { width: 100%; padding: 15px; border-right: none; border-bottom: 1px solid #333; flex-direction: row; flex-wrap: wrap; gap: 5px; }
-            .adm-sidebar h3 { width: 100%; margin-bottom: 10px; }
-            .adm-nav-btn { flex: 1; justify-content: center; font-size: 0.8rem; padding: 8px; white-space: nowrap; }
-            .adm-nav-btn span { display: none; }
-            .adm-main { padding: 15px; }
-            .adm-stats-grid { grid-template-columns: 1fr; }
-            .form-grid { grid-template-columns: 1fr; }
-            .form-full { grid-column: span 1; }
-            .adm-table { font-size: 0.75rem; }
-            .adm-table th, .adm-table td { padding: 8px 5px; }
+
+            .head-inner {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .brand {
+                width: 100%;
+                justify-content: space-between;
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 5px;
+                -webkit-overflow-scrolling: touch;
+                background: transparent;
+                border: none;
+            }
+
+            .nav-item {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                margin-right: 5px;
+            }
+
+            .nav-item.active {
+                background: var(--accent);
+                color: black;
+            }
+
+            .auth-widget {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 5px;
+            }
+
+            .btn-tg {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .profile-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .profile-sidebar {
+                position: static;
+            }
+
+            .p-card {
+                padding: 25px 15px;
+            }
+
+            .p-stats-grid {
+                gap: 5px;
+            }
+
+            .p-stat h3 {
+                font-size: 1.3rem;
+            }
+
+            .p-stat span {
+                font-size: 0.6rem;
+            }
+
+            .lb-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .lb-row {
+                padding: 15px;
+                grid-template-columns: 40px 40px 1fr 70px;
+                gap: 10px;
+            }
+
+            .lb-name {
+                font-size: 0.95rem;
+            }
+
+            .lb-pts {
+                font-size: 1rem;
+            }
+
+            .lvl-card {
+                height: auto;
+                flex-direction: column;
+            }
+
+            .lvl-bg {
+                height: 120px;
+                position: relative;
+            }
+
+            .lvl-rank {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+                background: rgba(0, 0, 0, 0.8);
+                border-radius: 8px;
+                font-size: 1.2rem;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .lvl-pts {
+                position: static;
+                transform: none;
+                text-align: left;
+                margin-top: 15px;
+            }
+
+            .pts-val {
+                font-size: 2rem;
+            }
+
+            #admin-overlay {
+                z-index: 9999;
+            }
+
+            .adm-layout {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            .adm-sidebar {
+                width: 100%;
+                padding: 15px;
+                border-right: none;
+                border-bottom: 1px solid #333;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .adm-sidebar h3 {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .adm-nav-btn {
+                flex: 1;
+                justify-content: center;
+                font-size: 0.8rem;
+                padding: 8px;
+                white-space: nowrap;
+            }
+
+            .adm-nav-btn span {
+                display: none;
+            }
+
+            .adm-main {
+                padding: 15px;
+            }
+
+            .adm-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-full {
+                grid-column: span 1;
+            }
+
+            .adm-table {
+                font-size: 0.75rem;
+            }
+
+            .adm-table th,
+            .adm-table td {
+                padding: 8px 5px;
+            }
         }
     </style>
 </head>
+
 <body data-theme="dark">
 
     <header>
         <div class="container head-inner">
             <div class="brand" onclick="navigate('list')">
-                <span><i class="fa-solid fa-earth-americas"></i> GLOBAL<span style="color:var(--accent)">BBGDPS</span></span>
+                <span><i class="fa-solid fa-earth-americas"></i> GLOBAL<span
+                        style="color:var(--accent)">BBGDPS</span></span>
             </div>
-            
+
             <div class="nav-links">
                 <div class="nav-item active" onclick="navigate('list')" id="nav-list">Demonlist</div>
                 <div class="nav-item" onclick="navigate('challenges')" id="nav-challenges">Challenges</div>
@@ -410,7 +1268,9 @@
                     <i class="fa-brands fa-telegram"></i> Channel
                 </a>
                 <div id="auth-area"></div>
-                <button onclick="toggleAdminPanel()" class="btn btn-sec" style="padding:10px; width:42px; height:42px; border-radius:50%; justify-content:center"><i class="fa-solid fa-lock"></i></button>
+                <button onclick="toggleAdminPanel()" class="btn btn-sec"
+                    style="padding:10px; width:42px; height:42px; border-radius:50%; justify-content:center"><i
+                        class="fa-solid fa-lock"></i></button>
             </div>
         </div>
     </header>
@@ -421,54 +1281,90 @@
 
     <!-- === ADMIN DASHBOARD === -->
     <div id="admin-overlay" class="hidden">
-        <div id="adm-login-view" style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background: radial-gradient(circle, #1e293b 0%, #050505 70%);">
-            <div style="background:#0f1214; padding:40px; border-radius:20px; border:1px solid var(--accent); width:100%; max-width:400px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.5)">
-                <i class="fa-solid fa-user-shield" style="font-size:4rem; color:var(--accent); margin-bottom:20px; filter:drop-shadow(0 0 15px var(--accent))"></i>
+        <div id="adm-login-view"
+            style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background: radial-gradient(circle, #1e293b 0%, #050505 70%);">
+            <div
+                style="background:#0f1214; padding:40px; border-radius:20px; border:1px solid var(--accent); width:100%; max-width:400px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.5)">
+                <i class="fa-solid fa-user-shield"
+                    style="font-size:4rem; color:var(--accent); margin-bottom:20px; filter:drop-shadow(0 0 15px var(--accent))"></i>
                 <h2 style="margin-bottom:10px">Admin Access</h2>
-                <input id="adm-pass" type="password" class="input-std" placeholder="Security Key" style="text-align:center; font-size:1.2rem; letter-spacing:5px">
-                <button onclick="adminLogin()" class="btn btn-primary" style="width:100%; margin-top:20px; font-size:1rem">Authenticate</button>
-                <button onclick="toggleAdminPanel()" class="btn btn-sec" style="width:100%; margin-top:10px">Cancel</button>
+                <input id="adm-pass" type="password" class="input-std" placeholder="Security Key"
+                    style="text-align:center; font-size:1.2rem; letter-spacing:5px">
+                <button onclick="adminLogin()" class="btn btn-primary"
+                    style="width:100%; margin-top:20px; font-size:1rem">Authenticate</button>
+                <button onclick="toggleAdminPanel()" class="btn btn-sec"
+                    style="width:100%; margin-top:10px">Cancel</button>
             </div>
         </div>
 
         <div id="adm-dashboard-view" class="adm-layout hidden">
             <div class="adm-sidebar">
-                <div style="width:100%; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.1)">
+                <div
+                    style="width:100%; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.1)">
                     <h3 style="margin:0; color:var(--accent)">CMS PANEL</h3>
                     <div style="font-size:0.7rem; color:#666">v4.4 Z-Fix</div>
                 </div>
-                
-                <div class="adm-nav-btn active" onclick="renderAdmDashboard('overview', this)"><i class="fa-solid fa-chart-pie"></i> <span>Overview</span></div>
-                <div class="adm-nav-btn" onclick="renderAdmDashboard('levels', this)"><i class="fa-solid fa-layer-group"></i> <span>Levels</span></div>
-                <div class="adm-nav-btn" onclick="renderAdmDashboard('queue', this)"><i class="fa-solid fa-inbox"></i> <span>Queue</span></div>
-                <div class="adm-nav-btn" onclick="renderAdmDashboard('users', this)"><i class="fa-solid fa-users"></i> <span>Users</span></div>
-                <div class="adm-nav-btn" onclick="renderAdmDashboard('team', this)"><i class="fa-solid fa-crown"></i> <span>Team</span></div>
-                <div class="adm-nav-btn" onclick="renderAdmDashboard('settings', this)"><i class="fa-solid fa-gear"></i> <span>System</span></div>
+
+                <div class="adm-nav-btn active" onclick="renderAdmDashboard('overview', this)"><i
+                        class="fa-solid fa-chart-pie"></i> <span>Overview</span></div>
+                <div class="adm-nav-btn" onclick="renderAdmDashboard('levels', this)"><i
+                        class="fa-solid fa-layer-group"></i> <span>Levels</span></div>
+                <div class="adm-nav-btn" onclick="renderAdmDashboard('queue', this)"><i class="fa-solid fa-inbox"></i>
+                    <span>Queue</span></div>
+                <div class="adm-nav-btn" onclick="renderAdmDashboard('users', this)"><i class="fa-solid fa-users"></i>
+                    <span>Users</span></div>
+                <div class="adm-nav-btn" onclick="renderAdmDashboard('team', this)"><i class="fa-solid fa-crown"></i>
+                    <span>Team</span></div>
+                <div class="adm-nav-btn" onclick="renderAdmDashboard('settings', this)"><i class="fa-solid fa-gear"></i>
+                    <span>System</span></div>
                 <div style="margin-top:auto; width:100%">
-                    <button onclick="toggleAdminPanel()" class="btn btn-danger" style="width:100%"><i class="fa-solid fa-power-off"></i> Exit</button>
+                    <button onclick="toggleAdminPanel()" class="btn btn-danger" style="width:100%"><i
+                            class="fa-solid fa-power-off"></i> Exit</button>
                 </div>
             </div>
 
             <div class="adm-main">
                 <div class="adm-container">
-                    
+
                     <div id="adt-overview" class="adm-tab-content">
-                        <div class="adm-topbar"><h2>System Overview</h2></div>
+                        <div class="adm-topbar">
+                            <h2>System Overview</h2>
+                        </div>
                         <div class="adm-stats-grid">
-                            <div class="adm-stat-card"><div class="asc-icon"><i class="fa-solid fa-cubes"></i></div><div><h2 id="st-lvls" style="margin:0">0</h2><span style="color:#888">Total Levels</span></div></div>
-                            <div class="adm-stat-card"><div class="asc-icon"><i class="fa-solid fa-users"></i></div><div><h2 id="st-users" style="margin:0">0</h2><span style="color:#888">Registered Users</span></div></div>
-                            <div class="adm-stat-card"><div class="asc-icon"><i class="fa-solid fa-scroll"></i></div><div><h2 id="st-queue" style="margin:0">0</h2><span style="color:#888">Pending Records</span></div></div>
+                            <div class="adm-stat-card">
+                                <div class="asc-icon"><i class="fa-solid fa-cubes"></i></div>
+                                <div>
+                                    <h2 id="st-lvls" style="margin:0">0</h2><span style="color:#888">Total Levels</span>
+                                </div>
+                            </div>
+                            <div class="adm-stat-card">
+                                <div class="asc-icon"><i class="fa-solid fa-users"></i></div>
+                                <div>
+                                    <h2 id="st-users" style="margin:0">0</h2><span style="color:#888">Registered
+                                        Users</span>
+                                </div>
+                            </div>
+                            <div class="adm-stat-card">
+                                <div class="asc-icon"><i class="fa-solid fa-scroll"></i></div>
+                                <div>
+                                    <h2 id="st-queue" style="margin:0">0</h2><span style="color:#888">Pending
+                                        Records</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div id="adt-levels" class="adm-tab-content hidden">
                         <div class="adm-topbar">
                             <h2>Levels Manager</h2>
-                            <button onclick="document.getElementById('adm-add-lvl-form').classList.toggle('hidden')" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add</button>
+                            <button onclick="document.getElementById('adm-add-lvl-form').classList.toggle('hidden')"
+                                class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add</button>
                         </div>
-                        <div id="adm-add-lvl-form" class="adm-card hidden" style="border:1px solid var(--accent); margin-bottom:30px">
+                        <div id="adm-add-lvl-form" class="adm-card hidden"
+                            style="border:1px solid var(--accent); margin-bottom:30px">
                             <h4 style="margin-bottom:20px; color:var(--accent)">ADD NEW LEVEL</h4>
-                            <p style="font-size:0.8rem; color:#888; margin-bottom:10px">Set Points to <b>0</b> to add to <b>Legacy List</b>.</p>
+                            <p style="font-size:0.8rem; color:#888; margin-bottom:10px">Set Points to <b>0</b> to add to
+                                <b>Legacy List</b>.</p>
                             <div class="form-grid">
                                 <input id="n-name" class="input-std" placeholder="Level Name">
                                 <input id="n-auth" class="input-std" placeholder="Creator">
@@ -483,35 +1379,65 @@
                                 <input id="n-runpts" class="input-std" placeholder="Points for Run">
                                 <input id="n-vid" class="input-std form-full" placeholder="Preview URL (Image Link)">
                             </div>
-                            <button onclick="fullAddLevel()" class="btn btn-primary" style="width:100%; margin-top:15px">Create Level Entry</button>
+                            <button onclick="fullAddLevel()" class="btn btn-primary"
+                                style="width:100%; margin-top:15px">Create Level Entry</button>
                         </div>
-                        <input onkeyup="filterAdmTable('tbl-lvls', 1)" class="input-std" placeholder="Search levels..." style="margin-bottom:15px">
-                        <div style="background:var(--bg-card); border-radius:12px; border:var(--border); overflow:hidden; overflow-x:auto;">
+                        <input onkeyup="filterAdmTable('tbl-lvls', 1)" class="input-std" placeholder="Search levels..."
+                            style="margin-bottom:15px">
+                        <div
+                            style="background:var(--bg-card); border-radius:12px; border:var(--border); overflow:hidden; overflow-x:auto;">
                             <table class="adm-table" id="tbl-lvls">
-                                <thead><tr><th>ID</th><th>Name</th><th>Creator</th><th>Pts</th><th>Cat</th><th>Edit</th></tr></thead>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Creator</th>
+                                        <th>Pts</th>
+                                        <th>Cat</th>
+                                        <th>Edit</th>
+                                    </tr>
+                                </thead>
                                 <tbody id="tbody-levels"></tbody>
                             </table>
                         </div>
                     </div>
 
                     <div id="adt-queue" class="adm-tab-content hidden">
-                        <div class="adm-topbar"><h2>Submission Queue</h2> <button onclick="renderAdmQueue()" class="btn btn-sec"><i class="fa-solid fa-rotate"></i> Refresh</button></div>
-                        <div id="queue-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px"></div>
+                        <div class="adm-topbar">
+                            <h2>Submission Queue</h2> <button onclick="renderAdmQueue()" class="btn btn-sec"><i
+                                    class="fa-solid fa-rotate"></i> Refresh</button>
+                        </div>
+                        <div id="queue-grid"
+                            style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px">
+                        </div>
                     </div>
 
                     <div id="adt-users" class="adm-tab-content hidden">
-                        <div class="adm-topbar"><h2>User Database</h2></div>
-                        <input onkeyup="filterAdmTable('tbl-users', 0)" class="input-std" placeholder="Search username..." style="margin-bottom:15px">
-                        <div style="background:var(--bg-card); border-radius:12px; border:var(--border); overflow:hidden; overflow-x:auto;">
+                        <div class="adm-topbar">
+                            <h2>User Database</h2>
+                        </div>
+                        <input onkeyup="filterAdmTable('tbl-users', 0)" class="input-std"
+                            placeholder="Search username..." style="margin-bottom:15px">
+                        <div
+                            style="background:var(--bg-card); border-radius:12px; border:var(--border); overflow:hidden; overflow-x:auto;">
                             <table class="adm-table" id="tbl-users">
-                                <thead><tr><th>Username</th><th>Flag</th><th>Role</th><th>Actions</th></tr></thead>
+                                <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Flag</th>
+                                        <th>Role</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
                                 <tbody id="tbody-users"></tbody>
                             </table>
                         </div>
                     </div>
 
                     <div id="adt-team" class="adm-tab-content hidden">
-                        <div class="adm-topbar"><h2>Team Manager</h2></div>
+                        <div class="adm-topbar">
+                            <h2>Team Manager</h2>
+                        </div>
                         <div class="adm-card">
                             <h4 style="margin-bottom:15px; color:var(--accent)">ADD TEAM MEMBER</h4>
                             <div class="input-group">
@@ -525,14 +1451,19 @@
                                 <button onclick="admAddStaff()" class="btn btn-primary">Add</button>
                             </div>
                         </div>
-                        <div id="adm-team-list" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:15px"></div>
+                        <div id="adm-team-list"
+                            style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:15px">
+                        </div>
                     </div>
 
                     <div id="adt-settings" class="adm-tab-content hidden">
-                        <div class="adm-topbar"><h2>System Data</h2></div>
+                        <div class="adm-topbar">
+                            <h2>System Data</h2>
+                        </div>
                         <div class="adm-card">
                             <h4>Database Management</h4>
-                            <button onclick="exportDB()" class="btn btn-sec" style="margin-top:10px"><i class="fa-solid fa-download"></i> Backup JSON</button>
+                            <button onclick="exportDB()" class="btn btn-sec" style="margin-top:10px"><i
+                                    class="fa-solid fa-download"></i> Backup JSON</button>
                         </div>
                     </div>
                 </div>
@@ -552,7 +1483,8 @@
                 <h2 id="nation-name-display" style="margin:0; text-transform:uppercase; letter-spacing:1px"></h2>
                 <p style="color:var(--text-sec)">National Player Rankings</p>
             </div>
-            <div id="nation-list-inject" style="max-height:60vh; overflow-y:auto; border-top:1px solid rgba(255,255,255,0.1)"></div>
+            <div id="nation-list-inject"
+                style="max-height:60vh; overflow-y:auto; border-top:1px solid rgba(255,255,255,0.1)"></div>
             <button onclick="closeModals()" class="btn btn-sec" style="width:100%; margin-top:20px">Close</button>
         </div>
     </div>
@@ -564,16 +1496,19 @@
                 <input id="l-user" class="input-std" placeholder="Username">
                 <input id="l-pass" type="password" class="input-std" placeholder="Password">
                 <button onclick="login()" class="btn btn-primary" style="width:100%">Login</button>
-                <p style="margin-top:20px; font-size:0.9rem; opacity:0.6; cursor:pointer" onclick="switchAuth('reg')">Don't have an account? <b>Register</b></p>
+                <p style="margin-top:20px; font-size:0.9rem; opacity:0.6; cursor:pointer" onclick="switchAuth('reg')">
+                    Don't have an account? <b>Register</b></p>
             </div>
             <div id="view-reg" class="hidden">
-                <p style="font-size:0.85rem; color:var(--accent); margin-bottom:15px; border:1px solid var(--accent); padding:10px; border-radius:8px">
+                <p
+                    style="font-size:0.85rem; color:var(--accent); margin-bottom:15px; border:1px solid var(--accent); padding:10px; border-radius:8px">
                     <i class="fa-solid fa-triangle-exclamation"></i> Use the EXACT username from the leaderboard!
                 </p>
                 <input id="r-user" class="input-std" placeholder="Username">
                 <input id="r-pass" type="password" class="input-std" placeholder="Password">
                 <button onclick="register()" class="btn btn-primary" style="width:100%">Create Account</button>
-                <p style="margin-top:20px; font-size:0.9rem; opacity:0.6; cursor:pointer" onclick="switchAuth('login')">Back to Login</p>
+                <p style="margin-top:20px; font-size:0.9rem; opacity:0.6; cursor:pointer" onclick="switchAuth('login')">
+                    Back to Login</p>
             </div>
         </div>
     </div>
@@ -592,7 +1527,8 @@
                 <div style="width:50px; display:flex; align-items:center">%</div>
             </div>
             <input id="sub-link" class="input-std" placeholder="Video Link (YouTube)">
-            <button onclick="submitRecord()" class="btn btn-primary" style="width:100%; margin-top:10px">Submit for Review</button>
+            <button onclick="submitRecord()" class="btn btn-primary" style="width:100%; margin-top:10px">Submit for
+                Review</button>
             <button onclick="closeModals()" class="btn btn-sec" style="width:100%; margin-top:10px">Cancel</button>
         </div>
     </div>
@@ -638,7 +1574,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="modal-adm-user" class="modal">
         <div class="modal-box">
             <h3 id="adm-u-title">Manage User</h3>
@@ -653,18 +1589,18 @@
 
     <script>
         // --- LOCAL STORAGE MODE ---
-        const API = { url: "", token: "" }; 
-        const ADMIN_PASS = "bb0044"; 
+        const API = { url: "", token: "" };
+        const ADMIN_PASS = "bb0044";
 
         let db = { levels: [], users: [], team: [], pending: [] };
         let currentUser = null;
         let isAdmin = false;
-        let lbMode = 'demonlist'; 
+        let lbMode = 'demonlist';
         let editLvlId = null;
         let editUserTarget = null;
 
         const NO_IMG = "https://placehold.co/600x400/15181a/FFF?text=No+Preview&font=montserrat";
-        
+
         // Full Country List for Selector
         const fullCountryList = {
             "tm": "Turkmenistan", "ru": "Russia", "ua": "Ukraine", "kz": "Kazakhstan", "by": "Belarus",
@@ -688,49 +1624,49 @@
 
         // --- CORE ---
         async function api(cmd) {
-            if(!API.url) return {};
+            if (!API.url) return {};
             try { return await (await fetch(API.url, { method: 'POST', headers: { Authorization: `Bearer ${API.token}` }, body: JSON.stringify(cmd) })).json(); } catch { return {}; }
         }
 
         async function init() {
             // TRY API FIRST (Calls /api/db proxy if hosted)
             try {
-                const res = await (await fetch('/api/db', { 
-    method: 'POST', 
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(['GET', 'city_v12_pro']) 
-})).json();
-                if(res.result) db = JSON.parse(res.result);
+                const res = await (await fetch('/api/db', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(['GET', 'city_v12_pro'])
+                })).json();
+                if (res.result) db = JSON.parse(res.result);
                 else throw new Error("No API");
             } catch (e) {
                 // FALLBACK TO LOCAL STORAGE
                 const local = localStorage.getItem('global_bbgdps_db');
-                if(local) db = JSON.parse(local);
+                if (local) db = JSON.parse(local);
             }
 
-            if(!db.users) db.users = [];
-            if(!db.team) db.team = [];
-            
+            if (!db.users) db.users = [];
+            if (!db.team) db.team = [];
+
             const stored = localStorage.getItem('city_user');
-            if(stored) currentUser = JSON.parse(stored);
-            
+            if (stored) currentUser = JSON.parse(stored);
+
             window.onhashchange = router;
             router();
             updateAuthUI();
-            
+
             const sel = document.getElementById('ep-country');
-            sel.innerHTML = `<option value="">Select Country...</option>` + 
+            sel.innerHTML = `<option value="">Select Country...</option>` +
                 Object.entries(fullCountryList).map(([code, name]) => `<option value="${code}">${name}</option>`).join('');
         }
 
-        async function save() { 
+        async function save() {
             // TRY API FIRST (Calls /api/db proxy if hosted)
             try {
-                await fetch('/api/db', { 
-    method: 'POST', 
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(['SET', 'city_v12_pro', JSON.stringify(db)]) 
-});
+                await fetch('/api/db', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(['SET', 'city_v12_pro', JSON.stringify(db)])
+                });
             } catch (e) {
                 // FALLBACK TO LOCAL STORAGE
                 localStorage.setItem('global_bbgdps_db', JSON.stringify(db));
@@ -739,12 +1675,12 @@
 
         async function sha256(str) {
             const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
-            return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join('');
+            return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join('');
         }
 
         function getImg(url) { return (url && url.length > 5) ? url : NO_IMG; }
         function getFlagHtml(c) {
-            if(!c) return '<i class="fa-solid fa-earth-americas" style="opacity:0.3"></i>';
+            if (!c) return '<i class="fa-solid fa-earth-americas" style="opacity:0.3"></i>';
             return `<span class="fi fi-${c.toLowerCase()}"></span>`;
         }
         function getCountryName(c) { return fullCountryList[c.toLowerCase()] || c.toUpperCase(); }
@@ -755,16 +1691,16 @@
         function router() {
             const hash = window.location.hash.substring(1) || 'list';
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            if(hash === 'list') { document.getElementById('nav-list').classList.add('active'); renderList('demonlist'); }
-            else if(hash === 'challenges') { document.getElementById('nav-challenges').classList.add('active'); renderList('challenge'); }
-            else if(hash === 'leaderboard') { document.getElementById('nav-leaderboard').classList.add('active'); renderLeaderboard(); }
-            else if(hash === 'staff') { document.getElementById('nav-staff').classList.add('active'); renderStaff(); }
-            else if(hash.startsWith('profile=')) { renderProfile(decodeURIComponent(hash.split('=')[1])); }
+            if (hash === 'list') { document.getElementById('nav-list').classList.add('active'); renderList('demonlist'); }
+            else if (hash === 'challenges') { document.getElementById('nav-challenges').classList.add('active'); renderList('challenge'); }
+            else if (hash === 'leaderboard') { document.getElementById('nav-leaderboard').classList.add('active'); renderLeaderboard(); }
+            else if (hash === 'staff') { document.getElementById('nav-staff').classList.add('active'); renderStaff(); }
+            else if (hash.startsWith('profile=')) { renderProfile(decodeURIComponent(hash.split('=')[1])); }
         }
 
         // --- UI ---
         function renderList(cat) {
-            const allLevels = db.levels.filter(l => l.cat === cat).sort((a,b) => b.pts - a.pts);
+            const allLevels = db.levels.filter(l => l.cat === cat).sort((a, b) => b.pts - a.pts);
             const app = document.getElementById('app');
             const mainList = allLevels.filter(l => l.pts > 0);
             const legacyList = allLevels.filter(l => l.pts === 0);
@@ -795,54 +1731,54 @@
                 </div>`;
 
             html += mainList.map((l, i) => renderCard(l, i + 1, false)).join('');
-            if(legacyList.length > 0) { html += `<div class="divider">Legacy List</div>` + legacyList.map(l => renderCard(l, 0, true)).join(''); }
+            if (legacyList.length > 0) { html += `<div class="divider">Legacy List</div>` + legacyList.map(l => renderCard(l, 0, true)).join(''); }
             app.innerHTML = html + `</div>`;
         }
 
         function renderLeaderboard() {
             const app = document.getElementById('app');
             const scores = {};
-            
+
             db.levels.filter(l => l.cat === lbMode && l.pts > 0).forEach(l => {
-                l.victors.forEach(v => scores[v] = (scores[v]||0) + l.pts);
-                (l.runs||[]).forEach(r => scores[r.name] = (scores[r.name]||0) + l.prg_pts);
-                if(l.ver) scores[l.ver] = (scores[l.ver]||0) + l.pts;
+                l.victors.forEach(v => scores[v] = (scores[v] || 0) + l.pts);
+                (l.runs || []).forEach(r => scores[r.name] = (scores[r.name] || 0) + l.prg_pts);
+                if (l.ver) scores[l.ver] = (scores[l.ver] || 0) + l.pts;
             });
-            const globalSorted = Object.entries(scores).sort((a,b) => b[1]-a[1]);
-            
+            const globalSorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+
             const natScores = {};
             db.users.forEach(u => {
-                if(u.country && scores[u.username]) {
-                     let c = u.country.toLowerCase();
-                     natScores[c] = (natScores[c]||0) + scores[u.username];
+                if (u.country && scores[u.username]) {
+                    let c = u.country.toLowerCase();
+                    natScores[c] = (natScores[c] || 0) + scores[u.username];
                 }
             });
-            const natSorted = Object.entries(natScores).sort((a,b) => b[1]-a[1]);
+            const natSorted = Object.entries(natScores).sort((a, b) => b[1] - a[1]);
 
             let html = `
             <div class="lb-header">
                 <div class="lb-switch">
-                    <div class="lb-btn ${lbMode==='demonlist'?'active':''}" onclick="lbMode='demonlist'; renderLeaderboard()">DEMONLIST</div>
-                    <div class="lb-btn ${lbMode==='challenge'?'active':''}" onclick="lbMode='challenge'; renderLeaderboard()">CHALLENGE</div>
+                    <div class="lb-btn ${lbMode === 'demonlist' ? 'active' : ''}" onclick="lbMode='demonlist'; renderLeaderboard()">DEMONLIST</div>
+                    <div class="lb-btn ${lbMode === 'challenge' ? 'active' : ''}" onclick="lbMode='challenge'; renderLeaderboard()">CHALLENGE</div>
                 </div>
             </div>
             <div class="lb-grid">
                 <div>
                     <h2 style="border-bottom:2px solid var(--accent); padding-bottom:15px; margin-bottom:20px;">GLOBAL RANKING</h2>
                     ${globalSorted.map(([name, pts], i) => {
-                        const u = db.users.find(x=>x.username===name) || {};
-                        return `<div class="lb-row" onclick="navigate('profile=${name}')">
-                            <div class="lb-rank">#${i+1}</div>
+                const u = db.users.find(x => x.username === name) || {};
+                return `<div class="lb-row" onclick="navigate('profile=${name}')">
+                            <div class="lb-rank">#${i + 1}</div>
                             <div class="rank-flag">${getFlagHtml(u.country)}</div>
                             <div class="lb-name"><img src="${getAvatar(name)}" style="width:30px; height:30px; border-radius:50%; object-fit:cover"> ${name}</div>
                             <div class="lb-pts">${pts.toFixed(1)}</div>
                         </div>`
-                    }).join('')}
+            }).join('')}
                 </div>
                 <div>
                     <h2 style="border-bottom:2px solid var(--accent); padding-bottom:15px; margin-bottom:20px;">NATIONAL RANKING</h2>
                     ${natSorted.map(([code, pts], i) => `<div class="lb-row" onclick="openNationModal('${code}')">
-                        <div class="lb-rank">#${i+1}</div>
+                        <div class="lb-rank">#${i + 1}</div>
                         <div class="rank-flag">${getFlagHtml(code)}</div>
                         <div class="lb-name">${getCountryName(code)}</div>
                         <div class="lb-pts">${pts.toFixed(1)}</div>
@@ -855,46 +1791,46 @@
         function openNationModal(code) {
             const scores = {};
             db.levels.filter(l => l.cat === lbMode && l.pts > 0).forEach(l => {
-                l.victors.forEach(v => scores[v] = (scores[v]||0) + l.pts);
-                (l.runs||[]).forEach(r => scores[r.name] = (scores[r.name]||0) + l.prg_pts);
-                if(l.ver) scores[l.ver] = (scores[l.ver]||0) + l.pts;
+                l.victors.forEach(v => scores[v] = (scores[v] || 0) + l.pts);
+                (l.runs || []).forEach(r => scores[r.name] = (scores[r.name] || 0) + l.prg_pts);
+                if (l.ver) scores[l.ver] = (scores[l.ver] || 0) + l.pts;
             });
-            
+
             const localPlayers = [];
             db.users.forEach(u => {
                 if (u.country === code && scores[u.username]) {
                     localPlayers.push({ name: u.username, pts: scores[u.username] });
                 }
             });
-            localPlayers.sort((a,b) => b.pts - a.pts);
-            
+            localPlayers.sort((a, b) => b.pts - a.pts);
+
             document.getElementById('nation-flag-display').innerHTML = getFlagHtml(code);
             document.getElementById('nation-name-display').innerText = getCountryName(code);
-            
+
             document.getElementById('nation-list-inject').innerHTML = localPlayers.map((p, i) => `
                 <div style="display:flex; align-items:center; justify-content:space-between; padding:15px; border-bottom:1px solid rgba(255,255,255,0.05); cursor:pointer" onclick="navigate('profile=${p.name}'); closeModals()">
                     <div style="display:flex; align-items:center; gap:15px">
-                        <b style="color:var(--text-sec); width:30px">#${i+1}</b>
+                        <b style="color:var(--text-sec); width:30px">#${i + 1}</b>
                         <img src="${getAvatar(p.name)}" style="width:30px; height:30px; border-radius:50%; object-fit:cover">
                         <b>${p.name}</b>
                     </div>
                     <b style="color:var(--accent)">${p.pts.toFixed(1)}</b>
                 </div>
             `).join('') || '<div style="padding:20px; text-align:center; opacity:0.5">No active players found.</div>';
-            
+
             document.getElementById('modal-nation').style.display = 'flex';
         }
 
         function renderProfile(username) {
             const user = getUser(username);
             const isMe = currentUser && currentUser.username === username;
-            
+
             let totalPts = 0;
             let demonCount = 0;
             let challengeCount = 0;
-            
+
             const records = [];
-            
+
             db.levels.forEach(l => {
                 let verified = (l.ver === username);
                 let beaten = l.victors.includes(username);
@@ -902,10 +1838,10 @@
                 let pts = 0;
 
                 if (verified || beaten) {
-                    if(!records.find(r=>r.l.id===l.id)) {
-                        pts = l.pts; 
+                    if (!records.find(r => r.l.id === l.id)) {
+                        pts = l.pts;
                         records.push({ type: verified ? 'ver' : 'win', l: l });
-                        if(l.cat === 'demonlist') demonCount++; else challengeCount++;
+                        if (l.cat === 'demonlist') demonCount++; else challengeCount++;
                     }
                 } else if (run) {
                     pts = (l.prg_pts || 0);
@@ -913,7 +1849,7 @@
                 }
                 totalPts += pts;
             });
-            records.sort((a,b) => b.l.pts - a.l.pts);
+            records.sort((a, b) => b.l.pts - a.l.pts);
 
             const app = document.getElementById('app');
             app.innerHTML = `
@@ -939,21 +1875,21 @@
                     </div>
                     <div id="p-records-feed">
                         ${records.map(rec => {
-                            const l = rec.l;
-                            const isVer = rec.type === 'ver';
-                            const isWin = rec.type === 'win';
-                            const isLegacy = l.pts === 0;
-                            let perc = isVer ? 'VERIFIER' : (isWin ? '100%' : rec.percent + '%');
-                            let pointsDisplay = isLegacy ? "LEGACY" : `+${isWin || isVer ? l.pts : l.prg_pts} pts`;
-                            return `<div class="prog-banner rec-item rec-${l.cat} ${isLegacy ? 'is-legacy' : ''}" onclick="openLevel(${l.id})">
+                const l = rec.l;
+                const isVer = rec.type === 'ver';
+                const isWin = rec.type === 'win';
+                const isLegacy = l.pts === 0;
+                let perc = isVer ? 'VERIFIER' : (isWin ? '100%' : rec.percent + '%');
+                let pointsDisplay = isLegacy ? "LEGACY" : `+${isWin || isVer ? l.pts : l.prg_pts} pts`;
+                return `<div class="prog-banner rec-item rec-${l.cat} ${isLegacy ? 'is-legacy' : ''}" onclick="openLevel(${l.id})">
                                 <div class="prog-bg" style="background-image: url('${getImg(l.img)}')"></div>
                                 <div class="prog-info">
                                     <h3 class="prog-title">${l.name}</h3>
                                     <div class="prog-pts">${pointsDisplay}</div>
                                 </div>
-                                <div class="prog-percent ${!isLegacy && (isWin||isVer) ? 'perc-100' : ''}">${perc}</div>
+                                <div class="prog-percent ${!isLegacy && (isWin || isVer) ? 'perc-100' : ''}">${perc}</div>
                             </div>`
-                        }).join('')}
+            }).join('')}
                     </div>
                 </main>
             </div>`;
@@ -961,7 +1897,7 @@
         }
 
         function switchProfileTab(btn, cat) {
-            if(!btn) return;
+            if (!btn) return;
             document.querySelectorAll('.p-tab').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             document.querySelectorAll('.rec-item').forEach(el => el.style.display = 'none');
@@ -969,10 +1905,13 @@
         }
 
         function renderStaff() {
+            const rolePriority = { 'List Owner': 1, 'List Technical Admin': 2, 'List Admin': 3, 'List Helper': 4 };
+            const sortedTeam = [...db.team].sort((a, b) => (rolePriority[a.role] || 99) - (rolePriority[b.role] || 99));
+
             document.getElementById('app').innerHTML = `
             <h2 style="text-align:center; margin-bottom:40px; font-weight:900;">STAFF TEAM</h2>
-            <div class="staff-grid">${db.team.map(m => {
-                const style = ROLE_STYLES[m.role] || {icon:'fa-user', color:'#fff'};
+            <div class="staff-grid">${sortedTeam.map(m => {
+                const style = ROLE_STYLES[m.role] || { icon: 'fa-user', color: '#fff' };
                 return `<div class="staff-card" style="--staff-color:${style.color}">
                     <i class="fa-solid ${style.icon} staff-icon"></i>
                     <h3 style="margin:0">${m.name}</h3>
@@ -1005,12 +1944,12 @@
                 <h3 style="border-bottom:1px solid rgba(255,255,255,0.1);">Victors (${l.victors.length})</h3>
                 <div style="max-height:200px; overflow-y:auto;">
                     ${l.victors.map(v => {
-                        const u = db.users.find(x => x.username === v) || {};
-                        return `<div style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; gap:10px; cursor:pointer" onclick="navigate('profile=${v}'); closeModals()">
+                const u = db.users.find(x => x.username === v) || {};
+                return `<div style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; gap:10px; cursor:pointer" onclick="navigate('profile=${v}'); closeModals()">
                             <span style="font-size:1.2em">${getFlagHtml(u.country)}</span>
                             <b>${v}</b>
                         </div>`;
-                    }).join('')}
+            }).join('')}
                 </div>
             </div>`;
             document.getElementById('modal-level').style.display = 'flex';
@@ -1019,10 +1958,10 @@
         // --- AUTH ---
         function updateAuthUI() {
             const area = document.getElementById('auth-area');
-            if(currentUser) area.innerHTML = `<div class="user-chip" onclick="navigate('profile=${currentUser.username}')"><img src="${getAvatar(currentUser.username)}" class="avatar-xxs"><span>${currentUser.username}</span></div>`;
+            if (currentUser) area.innerHTML = `<div class="user-chip" onclick="navigate('profile=${currentUser.username}')"><img src="${getAvatar(currentUser.username)}" class="avatar-xxs"><span>${currentUser.username}</span></div>`;
             else area.innerHTML = `<button onclick="openAuthModal()" class="btn btn-primary" style="padding:6px 15px; font-size:0.8rem">Login</button>`;
         }
-        function openAuthModal() { document.getElementById('modal-auth').style.display='flex'; }
+        function openAuthModal() { document.getElementById('modal-auth').style.display = 'flex'; }
         function switchAuth(mode) {
             document.getElementById('view-login').classList.add('hidden');
             document.getElementById('view-reg').classList.add('hidden');
@@ -1032,45 +1971,45 @@
             const u = document.getElementById('l-user').value.trim();
             const p = document.getElementById('l-pass').value;
             const user = db.users.find(x => x.username === u);
-            if(user && user.pass === await sha256(p)) { currentUser = user; localStorage.setItem('city_user', JSON.stringify(user)); location.reload(); }
+            if (user && user.pass === await sha256(p)) { currentUser = user; localStorage.setItem('city_user', JSON.stringify(user)); location.reload(); }
             else alert("Error");
         }
         async function register() {
             const u = document.getElementById('r-user').value.trim();
             const p = document.getElementById('r-pass').value;
-            if(db.users.find(x=>x.username===u)) return alert("Taken");
+            if (db.users.find(x => x.username === u)) return alert("Taken");
             db.users.push({ username: u, pass: await sha256(p), avatar: '', bio: '', country: '' });
             await save(); alert("Registered"); switchAuth('login');
         }
-        function openEditProfile() { 
+        function openEditProfile() {
             document.getElementById('ep-avatar').value = currentUser.avatar || '';
             document.getElementById('ep-country').value = currentUser.country || '';
             document.getElementById('ep-bio').value = currentUser.bio || '';
-            document.getElementById('modal-edit-profile').style.display='flex'; 
+            document.getElementById('modal-edit-profile').style.display = 'flex';
         }
         async function saveProfileChanges() {
-            const idx = db.users.findIndex(x=>x.username===currentUser.username);
+            const idx = db.users.findIndex(x => x.username === currentUser.username);
             db.users[idx].avatar = document.getElementById('ep-avatar').value;
             db.users[idx].bio = document.getElementById('ep-bio').value;
             // FIX: Ensure value is read correctly
             db.users[idx].country = document.getElementById('ep-country').value;
-            
-            currentUser = db.users[idx]; 
-            localStorage.setItem('city_user', JSON.stringify(currentUser)); 
-            await save(); 
-            closeModals(); 
+
+            currentUser = db.users[idx];
+            localStorage.setItem('city_user', JSON.stringify(currentUser));
+            await save();
+            closeModals();
             navigate(`profile=${currentUser.username}`);
         }
         function logout() { localStorage.removeItem('city_user'); location.reload(); }
 
         // --- ADMIN ---
-        function toggleAdminPanel() { 
+        function toggleAdminPanel() {
             const p = document.getElementById('admin-overlay');
             p.classList.toggle('hidden');
-            if(!p.classList.contains('hidden') && isAdmin) renderAdmDashboard('overview');
+            if (!p.classList.contains('hidden') && isAdmin) renderAdmDashboard('overview');
         }
         function adminLogin() {
-            if(document.getElementById('adm-pass').value === ADMIN_PASS) {
+            if (document.getElementById('adm-pass').value === ADMIN_PASS) {
                 isAdmin = true;
                 document.getElementById('adm-login-view').classList.add('hidden');
                 document.getElementById('adm-dashboard-view').classList.remove('hidden');
@@ -1079,21 +2018,21 @@
         }
 
         function renderAdmDashboard(tab, btn) {
-            if(btn) {
-                document.querySelectorAll('.adm-nav-btn').forEach(b=>b.classList.remove('active'));
+            if (btn) {
+                document.querySelectorAll('.adm-nav-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
             }
-            document.querySelectorAll('.adm-tab-content').forEach(c=>c.classList.add('hidden'));
+            document.querySelectorAll('.adm-tab-content').forEach(c => c.classList.add('hidden'));
             document.getElementById(`adt-${tab}`).classList.remove('hidden');
 
             document.getElementById('st-lvls').innerText = db.levels.length;
             document.getElementById('st-users').innerText = db.users.length;
             document.getElementById('st-queue').innerText = db.pending.length;
 
-            if(tab === 'levels') renderAdmLevels();
-            if(tab === 'queue') renderAdmQueue();
-            if(tab === 'users') renderAdmUsers();
-            if(tab === 'team') renderAdmTeam();
+            if (tab === 'levels') renderAdmLevels();
+            if (tab === 'queue') renderAdmQueue();
+            if (tab === 'users') renderAdmUsers();
+            if (tab === 'team') renderAdmTeam();
         }
 
         function renderAdmLevels() {
@@ -1102,17 +2041,17 @@
         function filterAdmTable(tableId, colIdx) {
             const input = event.target.value.toUpperCase();
             const trs = document.getElementById(tableId).getElementsByTagName("tr");
-            for(let i=1; i<trs.length; i++) {
+            for (let i = 1; i < trs.length; i++) {
                 const td = trs[i].getElementsByTagName("td")[colIdx];
-                if(td) trs[i].style.display = td.textContent.toUpperCase().indexOf(input) > -1 ? "" : "none";
+                if (td) trs[i].style.display = td.textContent.toUpperCase().indexOf(input) > -1 ? "" : "none";
             }
         }
         async function fullAddLevel() {
             db.levels.push({
                 id: Date.now(), name: document.getElementById('n-name').value, creator: document.getElementById('n-auth').value,
-                gd_id: document.getElementById('n-id').value, pts: parseFloat(document.getElementById('n-pts').value)||0,
+                gd_id: document.getElementById('n-id').value, pts: parseFloat(document.getElementById('n-pts').value) || 0,
                 ver: document.getElementById('n-ver').value, cat: document.getElementById('n-cat').value,
-                min_prg: parseInt(document.getElementById('n-min').value)||0, prg_pts: parseFloat(document.getElementById('n-runpts').value)||0,
+                min_prg: parseInt(document.getElementById('n-min').value) || 0, prg_pts: parseFloat(document.getElementById('n-runpts').value) || 0,
                 img: document.getElementById('n-vid').value, victors: [], runs: []
             });
             await save(); alert("Level Added"); renderAdmLevels(); document.getElementById('adm-add-lvl-form').classList.add('hidden');
@@ -1120,9 +2059,9 @@
 
         function openAdmEditLvl(id) {
             editLvlId = id;
-            const l = db.levels.find(x=>x.id===id);
+            const l = db.levels.find(x => x.id === id);
             // Verify elements exist before setting
-            if(l) {
+            if (l) {
                 document.getElementById('e-name').value = l.name;
                 document.getElementById('e-auth').value = l.creator;
                 document.getElementById('e-id').value = l.gd_id;
@@ -1131,12 +2070,12 @@
                 document.getElementById('e-min').value = l.min_prg || 0;
                 document.getElementById('e-runpts').value = l.prg_pts || 0;
                 document.getElementById('e-vid').value = l.img || '';
-                document.getElementById('modal-adm-edit-lvl').style.display='flex';
+                document.getElementById('modal-adm-edit-lvl').style.display = 'flex';
             }
         }
         async function saveAdmLevelEdit() {
-            const l = db.levels.find(x=>x.id===editLvlId);
-            if(l) {
+            const l = db.levels.find(x => x.id === editLvlId);
+            if (l) {
                 l.name = document.getElementById('e-name').value;
                 l.creator = document.getElementById('e-auth').value;
                 l.gd_id = document.getElementById('e-id').value;
@@ -1150,38 +2089,38 @@
         }
         async function admAddVictor() {
             const name = document.getElementById('e-new-victor').value;
-            if(!name) return;
-            const l = db.levels.find(x=>x.id===editLvlId);
-            if(!l.victors.includes(name)) { l.victors.push(name); await save(); alert(`Added ${name}!`); } 
+            if (!name) return;
+            const l = db.levels.find(x => x.id === editLvlId);
+            if (!l.victors.includes(name)) { l.victors.push(name); await save(); alert(`Added ${name}!`); }
             else alert("Already exists.");
         }
         async function deleteLevelFromAdm() {
-            if(confirm("DELETE LEVEL?")) { db.levels = db.levels.filter(x=>x.id!==editLvlId); await save(); closeModals(); renderAdmLevels(); }
+            if (confirm("DELETE LEVEL?")) { db.levels = db.levels.filter(x => x.id !== editLvlId); await save(); closeModals(); renderAdmLevels(); }
         }
 
         function renderAdmQueue() {
             const div = document.getElementById('queue-grid');
-            if(db.pending.length === 0) return div.innerHTML = '<div style="color:#666">No submissions.</div>';
+            if (db.pending.length === 0) return div.innerHTML = '<div style="color:#666">No submissions.</div>';
             div.innerHTML = db.pending.map(p => {
-                const l = db.levels.find(x=>x.id==p.lvlId);
+                const l = db.levels.find(x => x.id == p.lvlId);
                 return `<div class="adm-card"><h4>${p.player}</h4><div style="font-size:0.9rem;">Map: <b>${l?.name}</b> (${p.perc}%)</div><a href="${p.link}" target="_blank" style="color:var(--accent);">Video</a><div style="display:flex; gap:10px; margin-top:10px"><button onclick="decideQueue(${p.id}, true)" class="btn btn-primary" style="flex:1;">Accept</button><button onclick="decideQueue(${p.id}, false)" class="btn btn-danger" style="flex:1;">Reject</button></div></div>`;
             }).join('');
         }
         async function decideQueue(id, accept) {
-            const p = db.pending.find(x=>x.id===id);
-            if(accept) {
-                const l = db.levels.find(x=>x.id==p.lvlId);
-                if(p.perc >= 100) { if(!l.victors.includes(p.player)) l.victors.push(p.player); } else l.runs.push({name:p.player, percent:p.perc});
+            const p = db.pending.find(x => x.id === id);
+            if (accept) {
+                const l = db.levels.find(x => x.id == p.lvlId);
+                if (p.perc >= 100) { if (!l.victors.includes(p.player)) l.victors.push(p.player); } else l.runs.push({ name: p.player, percent: p.perc });
             }
-            db.pending = db.pending.filter(x=>x.id!==id); await save(); renderAdmQueue();
+            db.pending = db.pending.filter(x => x.id !== id); await save(); renderAdmQueue();
         }
 
         function renderAdmUsers() {
             document.getElementById('tbody-users').innerHTML = db.users.map(u => `<tr><td><b>${u.username}</b></td><td>${getFlagHtml(u.country)} ${u.country}</td><td>User</td><td><button onclick="admManageUser('${u.username}')" class="btn btn-sec">Manage</button></td></tr>`).join('');
         }
-        function admManageUser(name) { editUserTarget = name; document.getElementById('adm-u-title').innerText = "Manage: " + name; document.getElementById('modal-adm-user').style.display='flex'; }
-        async function admDoChangePass() { const np = document.getElementById('adm-u-pass').value; if(!np) return; const u = db.users.find(x=>x.username===editUserTarget); u.pass = await sha256(np); await save(); alert("Changed"); }
-        async function admDoSetFlag() { const f = document.getElementById('adm-u-flag').value; const u = db.users.find(x=>x.username===editUserTarget); u.country = f; await save(); alert("Flag Set"); renderAdmUsers(); }
+        function admManageUser(name) { editUserTarget = name; document.getElementById('adm-u-title').innerText = "Manage: " + name; document.getElementById('modal-adm-user').style.display = 'flex'; }
+        async function admDoChangePass() { const np = document.getElementById('adm-u-pass').value; if (!np) return; const u = db.users.find(x => x.username === editUserTarget); u.pass = await sha256(np); await save(); alert("Changed"); }
+        async function admDoSetFlag() { const f = document.getElementById('adm-u-flag').value; const u = db.users.find(x => x.username === editUserTarget); u.country = f; await save(); alert("Flag Set"); renderAdmUsers(); }
 
         function renderAdmTeam() {
             document.getElementById('adm-team-list').innerHTML = db.team.map(m => `
@@ -1194,8 +2133,8 @@
         async function admAddStaff() {
             const n = document.getElementById('new-staff-name').value;
             const r = document.getElementById('new-staff-role').value;
-            if(!n) return;
-            db.team.push({name:n, role:r}); await save(); renderAdmTeam(); document.getElementById('new-staff-name').value='';
+            if (!n) return;
+            db.team.push({ name: n, role: r }); await save(); renderAdmTeam(); document.getElementById('new-staff-name').value = '';
         }
         async function admRemoveStaff(n) {
             db.team = db.team.filter(x => x.name !== n); await save(); renderAdmTeam();
@@ -1203,22 +2142,22 @@
 
         function exportDB() {
             const a = document.createElement('a');
-            a.href = URL.createObjectURL(new Blob([JSON.stringify(db)], {type:'application/json'}));
+            a.href = URL.createObjectURL(new Blob([JSON.stringify(db)], { type: 'application/json' }));
             a.download = 'backup.json'; a.click();
         }
 
-        function openSubmitModal() { updateSubmitLevels(); document.getElementById('modal-submit').style.display='flex'; }
+        function openSubmitModal() { updateSubmitLevels(); document.getElementById('modal-submit').style.display = 'flex'; }
         function updateSubmitLevels() {
             const cat = document.getElementById('sub-cat').value;
             const sel = document.getElementById('sub-lvl');
-            const list = db.levels.filter(l => l.cat === cat).sort((a,b)=>b.pts-a.pts);
+            const list = db.levels.filter(l => l.cat === cat).sort((a, b) => b.pts - a.pts);
             sel.innerHTML = list.map(l => `<option value="${l.id}">${l.name}</option>`).join('');
         }
         async function submitRecord() {
             db.pending.push({ id: Date.now(), lvlId: document.getElementById('sub-lvl').value, player: document.getElementById('sub-name').value, perc: document.getElementById('sub-perc').value, link: document.getElementById('sub-link').value });
             await save(); alert("Submitted"); closeModals();
         }
-        function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display='none'); }
+        function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
 
         init();
     </script>
