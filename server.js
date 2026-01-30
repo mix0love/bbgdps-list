@@ -2,27 +2,26 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-const { Telegraf } = require('telegraf');
 const crypto = require('crypto');
 const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const BOT_TOKEN = '8324155535:AAEMBsrTT51QheDgCM8HKEBB9JsF7fsB8rE';
-const BOT_USERNAME = 'bbgdpsauth11bot';
 
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(__dirname));
 
 // --- DATABASE ---
-const DB_FILE = path.join(__dirname, 'data', 'db.json');
-const USERS_FILE = path.join(__dirname, 'data', 'users.json');
+const DATA_DIR = path.join(__dirname, 'data');
+const DB_FILE = path.join(DATA_DIR, 'db.json');
+const USERS_FILE = path.join(DATA_DIR, 'users.json');
+const LOGS_FILE = path.join(DATA_DIR, 'logs.json');
 
-if (!fs.existsSync(path.join(__dirname, 'data'))) fs.mkdirSync(path.join(__dirname, 'data'));
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
 
 function loadDB() {
-    if (!fs.existsSync(DB_FILE)) return { levels: [], list: [], pending: [] };
+    if (!fs.existsSync(DB_FILE)) return { levels: [], list: [], pending: [], team: [] };
     return JSON.parse(fs.readFileSync(DB_FILE));
 }
 
@@ -31,7 +30,7 @@ function saveDB(data) {
 }
 
 function loadUsers() {
-    if (!fs.existsSync(USERS_FILE)) return {};
+    if (!fs.existsSync(USERS_FILE)) return [];
     return JSON.parse(fs.readFileSync(USERS_FILE));
 }
 
@@ -39,116 +38,36 @@ function saveUsers(data) {
     fs.writeFileSync(USERS_FILE, JSON.stringify(data, null, 2));
 }
 
-function logAudit(action, user) {
-    console.log(`[AUDIT] ${user}: ${action}`);
-    // In a real app, append to a file
+function loadLogs() {
+    if (!fs.existsSync(LOGS_FILE)) return [];
+    return JSON.parse(fs.readFileSync(LOGS_FILE));
 }
 
-// --- TELEGRAM BOT ---
-const bot = new Telegraf(BOT_TOKEN);
+function saveLogs(data) {
+    fs.writeFileSync(LOGS_FILE, JSON.stringify(data, null, 2));
+}
 
-// User mapping: username -> chat_id
-// Stored in users.json: { "username": { chatId: 123, role: 'user'|'admin', banned: false } }
+function logAudit(action, actor) {
+    const logs = loadLogs();
+    const entry = {
+        id: Date.now(),
+        timestamp: new Date().toISOString(),
+        actor: actor || 'System',
+        action: action
+    };
+    logs.unshift(entry); // Newest first
+    // Limit log size to 1000 entries
+    if (logs.length > 1000) logs.pop();
+    saveLogs(logs);
+    console.log(`[AUDIT] ${entry.actor}: ${entry.action}`);
+}
 
-bot.start((ctx) => {
-    const user = ctx.from;
-    const users = loadUsers();
+// --- AUTH MIDDLEWARE ---
+const SESSIONS = {}; // token -> user object
 
-    if (!user.username) return ctx.reply("Please set a Telegram username to use this bot.");
-
-    const username = user.username.toLowerCase();
-
-    if (!users[username]) {
-        users[username] = { chatId: ctx.chat.id, role: 'user', banned: false, tgId: user.id };
-        saveUsers(users);
-        ctx.reply(`Welcome, @${user.username}! You are registered as a User.`);
-    } else {
-        // Update chat ID if changed
-        users[username].chatId = ctx.chat.id;
-        users[username].tgId = user.id;
-        saveUsers(users);
-        ctx.reply(`Welcome back, @${user.username}!`);
-    }
-});
-
-// COMMANDS
-bot.command('promote', (ctx) => {
-    // Only allow if sender is already admin or "Owner" (hardcoded for safety if DB is empty)
-    const sender = ctx.from.username?.toLowerCase();
-    const users = loadUsers();
-
-    // Safety: First user is owner if no admins exist, or check specific ID
-    // For now, let's assume the bot owner or first user can promote.
-    // Simplifying: checking if sender is admin or there are NO admins yet.
-    const hasAdmins = Object.values(users).some(u => u.role === 'admin');
-
-    if (hasAdmins && users[sender]?.role !== 'admin') {
-        return ctx.reply("You do not have permission.");
-    }
-
-    const targetUser = ctx.message.text.split(' ')[1];
-    if (!targetUser || !targetUser.startsWith('@')) return ctx.reply("Usage: /promote @username");
-
-    const targetName = targetUser.substring(1).toLowerCase();
-
-    if (!users[targetName]) return ctx.reply("User not found. They must start the bot first.");
-
-    users[targetName].role = 'admin';
-    saveUsers(users);
-    ctx.reply(`Promoted @${targetName} to Admin.`);
-
-    bot.telegram.sendMessage(users[targetName].chatId, "You have been promoted to Admin!");
-});
-
-bot.command('demote', (ctx) => {
-    const sender = ctx.from.username?.toLowerCase();
-    const users = loadUsers();
-    if (users[sender]?.role !== 'admin') return ctx.reply("No permission.");
-
-    const targetUser = ctx.message.text.split(' ')[1];
-    if (!targetUser || !targetUser.startsWith('@')) return ctx.reply("Usage: /demote @username");
-    const targetName = targetUser.substring(1).toLowerCase();
-
-    if (!users[targetName]) return ctx.reply("User not found.");
-
-    users[targetName].role = 'user';
-    saveUsers(users);
-    ctx.reply(`Demoted @${targetName} to User.`);
-});
-
-bot.command('ban', (ctx) => {
-    const sender = ctx.from.username?.toLowerCase();
-    const users = loadUsers();
-    if (users[sender]?.role !== 'admin') return ctx.reply("No permission.");
-
-    const targetUser = ctx.message.text.split(' ')[1];
-    if (!targetUser || !targetUser.startsWith('@')) return ctx.reply("Usage: /ban @username");
-    const targetName = targetUser.substring(1).toLowerCase();
-
-    if (!users[targetName]) return ctx.reply("User not found.");
-
-    users[targetName].banned = true;
-    saveUsers(users);
-    ctx.reply(`Banned @${targetName}.`);
-});
-
-bot.launch();
-
-// --- API ---
-
-// AUTH MIDDLEWARE
 function checkAuth(req, res, next) {
     const token = req.cookies['session_token'];
-    if (!token) return res.status(401).json({ error: 'Unauthorized' });
-
-    // Simple logic: token is just username for now (in production use JWT)
-    // To make it slightly secure without JWT lib dependency hell for this simple task:
-    // We already verify hash on login.
-
-    // Let's use signed cookies or just trust the cookie for this prototype since we verified hash.
-    // For better security, creating a simple session map in memory.
-    if (!SESSIONS[token]) return res.status(401).json({ error: 'Invalid session' });
-
+    if (!token || !SESSIONS[token]) return res.status(401).json({ error: 'Unauthorized' });
     req.user = SESSIONS[token];
     next();
 }
@@ -158,80 +77,137 @@ function checkAdmin(req, res, next) {
     next();
 }
 
-const SESSIONS = {}; // token -> user object
+// --- API ROUTES ---
 
-// TELEGRAM AUTH CHECK
-app.get('/api/auth/telegram', (req, res) => {
-    // Validate hash from query params
-    const auth_data = req.query;
-    const check_hash = auth_data.hash;
-    const data_check_arr = [];
+// AUTH & USERS
+app.post('/api/auth/register', (req, res) => {
+    const { username, pass, country } = req.body;
+    if (!username || !pass) return res.status(400).json({ error: 'Missing fields' });
 
-    for (let key in auth_data) {
-        if (key !== 'hash') {
-            data_check_arr.push(key + '=' + auth_data[key]);
-        }
-    }
-    data_check_arr.sort();
-    const data_check_string = data_check_arr.join('\n');
-
-    const secret_key = crypto.createHash('sha256').update(BOT_TOKEN).digest();
-    const hash = crypto.createHmac('sha256', secret_key).update(data_check_string).digest('hex');
-
-    if (hash !== check_hash) {
-        return res.status(403).json({ error: 'Data is NOT from Telegram' });
-    }
-
-    // Auth success
-    const username = auth_data.username.toLowerCase();
     const users = loadUsers();
 
-    // Check if banned
-    if (users[username] && users[username].banned) return res.status(403).json({ error: 'You are banned.' });
-
-    // Auto-register if not exists (via widget, entered without bot command first)
-    if (!users[username]) {
-        users[username] = { role: 'user', banned: false, tgId: auth_data.id };
-        saveUsers(users);
+    // Check duplication
+    if (users.find(u => u.username.toLowerCase() === username.toLowerCase())) {
+        return res.status(409).json({ error: 'Username taken' });
     }
 
-    // Create Session
+    // First User Is Admin Logic
+    const isFirstUser = users.length === 0;
+    const role = isFirstUser ? 'admin' : 'user';
+
+    const newUser = {
+        username,
+        pass, // Client sent hash, or we store hash depending on strategy. Assuming client sends SHA256 for now as per old logic.
+        country: country || '',
+        role: role,
+        avatar: '',
+        bio: '',
+        joinedAt: new Date().toISOString()
+    };
+
+    users.push(newUser);
+    saveUsers(users);
+
+    logAudit(`User Registered: ${username} (Role: ${role})`, username);
+
+    // Auto-login
     const sessionToken = crypto.randomBytes(32).toString('hex');
-    SESSIONS[sessionToken] = { username: username, role: users[username].role };
+    SESSIONS[sessionToken] = newUser;
+    res.cookie('session_token', sessionToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
 
-    // Set Cookie
-    res.cookie('session_token', sessionToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 }); // 1 day
-
-    // Notify Admin Channel (Console for now)
-    console.log(`User Logged in: ${username}`);
-    bot.telegram.sendMessage(users[username].chatId || auth_data.id, "New login detected via Web.");
-
-    res.json({ success: true, user: SESSIONS[sessionToken] });
+    // Return sanitised user
+    const { pass: _, ...userSafe } = newUser;
+    res.json({ success: true, user: userSafe });
 });
 
+app.post('/api/auth/login', (req, res) => {
+    const { username, pass } = req.body;
+    const users = loadUsers();
 
+    const user = users.find(u => u.username.toLowerCase() === username.toLowerCase() && u.pass === pass);
+
+    if (!user) return res.status(401).json({ error: 'Invalid credentials' });
+
+    const sessionToken = crypto.randomBytes(32).toString('hex');
+    SESSIONS[sessionToken] = user;
+    res.cookie('session_token', sessionToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
+
+    logAudit(`User Logged In`, user.username);
+
+    const { pass: _, ...userSafe } = user;
+    res.json({ success: true, user: userSafe });
+});
+
+app.post('/api/auth/logout', (req, res) => {
+    const token = req.cookies['session_token'];
+    if (token) delete SESSIONS[token];
+    res.clearCookie('session_token');
+    res.json({ success: true });
+});
 
 app.get('/api/me', checkAuth, (req, res) => {
-    res.json(req.user);
+    const { pass: _, ...userSafe } = req.user;
+    res.json(userSafe);
 });
 
+app.get('/api/users', (req, res) => {
+    const users = loadUsers();
+    // Return safe list
+    const safeUsers = users.map(u => {
+        const { pass, ...rest } = u;
+        return rest;
+    });
+    res.json(safeUsers);
+});
+
+// CORE DATA
 app.get('/api/levels', (req, res) => {
     const db = loadDB();
     res.json(db.levels || []);
 });
 
-app.get('/api/users', (req, res) => {
-    const users = loadUsers();
-    // Return relevant user data for profile viewing
-    res.json(users);
+app.get('/api/admin/logs', checkAuth, checkAdmin, (req, res) => {
+    const logs = loadLogs();
+    res.json(logs);
 });
 
-// ADMIN API
+// ADMIN ACTIONS
+app.post('/api/admin/promote', checkAuth, checkAdmin, (req, res) => {
+    const { targetUser } = req.body;
+    const users = loadUsers();
+    const u = users.find(x => x.username === targetUser);
+
+    if (!u) return res.status(404).json({ error: 'User not found' });
+
+    u.role = 'admin';
+    saveUsers(users);
+
+    logAudit(`Promoted ${targetUser} to Admin`, req.user.username);
+    res.json({ success: true });
+});
+
+app.post('/api/admin/demote', checkAuth, checkAdmin, (req, res) => {
+    const { targetUser } = req.body;
+    if (targetUser === req.user.username) return res.status(400).json({ error: 'Cannot demote self' });
+
+    const users = loadUsers();
+    const u = users.find(x => x.username === targetUser);
+
+    if (!u) return res.status(404).json({ error: 'User not found' });
+
+    u.role = 'user';
+    saveUsers(users);
+
+    logAudit(`Demoted ${targetUser} to User`, req.user.username);
+    res.json({ success: true });
+});
+
 app.post('/api/admin/levels', checkAuth, checkAdmin, (req, res) => {
     const db = loadDB();
+    if (!db.levels) db.levels = [];
     db.levels.push(req.body);
     saveDB(db);
-    logAudit(`${req.user.username} added level ${req.body.name}`, req.user.username);
+    logAudit(`Added level ${req.body.name}`, req.user.username);
     res.json({ success: true });
 });
 
@@ -242,15 +218,16 @@ app.put('/api/admin/levels/:id', checkAuth, checkAdmin, (req, res) => {
 
     db.levels[idx] = { ...db.levels[idx], ...req.body };
     saveDB(db);
-    logAudit(`${req.user.username} edited level ${db.levels[idx].name}`, req.user.username);
+    logAudit(`Edited level ${db.levels[idx].name}`, req.user.username);
     res.json({ success: true });
 });
 
 app.delete('/api/admin/levels/:id', checkAuth, checkAdmin, (req, res) => {
     const db = loadDB();
+    const lvlName = db.levels.find(l => l.id == req.params.id)?.name || req.params.id;
     db.levels = db.levels.filter(l => l.id != req.params.id);
     saveDB(db);
-    logAudit(`${req.user.username} deleted level ${req.params.id}`, req.user.username);
+    logAudit(`Deleted level ${lvlName}`, req.user.username);
     res.json({ success: true });
 });
 
